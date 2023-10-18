@@ -1,0 +1,28 @@
+@import '@/styles/mixins.scss';
+
+.content {
+  padding-bottom: 4px;
+
+  &__copy-button {
+    &--hidden {
+      display: none;
+    }
+
+    button {
+      @include transparent-button;
+      @include column-flex-center;
+      padding: 0;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.75;
+      }
+    }
+  }
+  &__copied-icon {
+    @include column-flex-center;
+    &--hidden {
+      display: none;
+    }
+  }
+}

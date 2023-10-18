@@ -1,0 +1,9 @@
+.content {
+  a {
+    display: flex;
+
+    &:hover {
+      opacity: 0.75;
+    }
+  }
+}

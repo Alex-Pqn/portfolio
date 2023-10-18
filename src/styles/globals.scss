@@ -1,0 +1,23 @@
+@import './fonts.scss';
+@import './mixins';
+@import './normalize.scss';
+@import './variables';
+
+main {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex: 1;
+}
+
+body {
+  background: linear-gradient(
+    $default-bg-color,
+    $default-bg-color,
+    darken($default-bg-color, 3%),
+    darken($default-bg-color, 3%),
+    darken($default-bg-color, 7%),
+    darken($default-bg-color, 15%)
+  );
+}

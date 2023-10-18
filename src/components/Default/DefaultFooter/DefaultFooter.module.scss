@@ -1,0 +1,22 @@
+@import '@/styles/mixins.scss';
+
+.container {
+  width: 100%;
+}
+
+.content {
+  @include row-flex-center;
+  justify-content: space-around;
+
+  &__email {
+  }
+
+  &__social {
+    ul {
+      @include row-flex-center;
+      li {
+        margin: 0 7px;
+      }
+    }
+  }
+}

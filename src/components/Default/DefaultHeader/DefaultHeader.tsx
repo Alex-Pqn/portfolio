@@ -16,9 +16,9 @@ const DefaultHeader = (): React.JSX.Element => {
           <li>
             <NavLink to={'/cv'}>CV</NavLink>
           </li>
-          <li>
+          {/* <li>
             <NavLink to={'/contact'}>Contact</NavLink>
-          </li>
+          </li> */}
         </ul>
       </nav>
     </header>

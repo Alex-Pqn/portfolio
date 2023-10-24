@@ -1,5 +1,5 @@
 import styles from './Home.module.scss'
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import DefaultHero from '@/components/Default/DefaultHero/DefaultHero'
 import Photo from '@/assets/photo.jpg'
 import IconArrowRight from '@/components/Icon/IconArrowRight/IconArrowRight'
@@ -10,31 +10,31 @@ const Home = (): React.JSX.Element => {
       {/* DefaultHero */}
       <DefaultHero title={"Je m'appelle Alexandre."} />
       {/* Content */}
-      <section className={styles.content}>
+      <div className={styles.content}>
         {/* Intro */}
-        <div className={styles.intro}>
+        <section className={styles.intro}>
           <div className={styles.intro__photo}>
             <img src={Photo} width="350px" height="450px" alt="Photo" />
           </div>
           <div className={styles.intro__text}>
             <h2>
-              Je suis un Développeur Web motivé, à la recherche de son premier
-              emploi dans le secteur.
+              Je suis un Développeur Web, à la recherche de son premier emploi
+              dans le secteur.
             </h2>
             <p>
               Après trois années de formation en développement web, mon objectif
-              est désormais d'intégrer une équipe dynamique où je pourrai mettre
-              en pratique mes compétences acquises au cours de ces dernières
-              années.
+              est désormais d'intégrer une équipe dynamique, où, avec motivation
+              et détermination je pourrai mettre en pratique mes compétences
+              acquises au cours de ces dernières années.
             </p>
           </div>
-        </div>
-        <div className={styles.discover}>
-          <NavLink to={'/portfolio'}>
+        </section>
+        <section className={styles.discover}>
+          <Link to={'/portfolio'}>
             Découvrir mon portfolio <IconArrowRight size="27px" />
-          </NavLink>
-        </div>
-      </section>
+          </Link>
+        </section>
+      </div>
     </div>
   )
 }

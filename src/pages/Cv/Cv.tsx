@@ -1,6 +1,7 @@
 import styles from './Cv.module.scss'
 import { Helmet } from 'react-helmet-async'
 import DefaultHero from '@/components/Default/DefaultHero/DefaultHero'
+import CV from '@/assets/CV.pdf'
 
 const Cv = (): React.JSX.Element => {
   return (
@@ -15,7 +16,9 @@ const Cv = (): React.JSX.Element => {
         <DefaultHero title={'CV.'} description={'Découvrez mon CV'} />
         {/* Content */}
         <section className={styles.content}>
-          <span>...</span>
+          <div className={styles.content__cv}>
+            <iframe src={CV}></iframe>
+          </div>
         </section>
       </div>
     </>

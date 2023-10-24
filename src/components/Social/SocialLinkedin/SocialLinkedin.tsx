@@ -7,7 +7,7 @@ export const SocialLinkedin = () => {
   return (
     <div className={styles['content']}>
       <a target="_blank" rel="noreferrer nofollow noopener" href={linkedinLink}>
-        <IconLinkedin size="25px" />
+        <IconLinkedin size="22px" />
       </a>
     </div>
   )

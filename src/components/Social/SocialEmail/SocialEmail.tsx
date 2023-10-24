@@ -11,7 +11,7 @@ export const SocialEmail = () => {
         <a href={`mailto:${email}`}>{email}</a>
       </div>
       {/* copy-button */}
-      <div className={styles['content__copy--button']}>
+      <div className={styles['content__copy-button']}>
         <ButtonCopyToClipboard textToCopy={email} />
       </div>
     </div>

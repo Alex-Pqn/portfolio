@@ -10,10 +10,14 @@ type PropsTypes = InferProps<typeof Props>
 
 const DefaultHero = ({ title, description }: PropsTypes): React.JSX.Element => {
   return (
-    <section className={styles['container']}>
-      <div className={styles['content']}>
-        <h1>{title}</h1>
-        {description ? <p>{description}</p> : ''}
+    <section className={styles.container}>
+      <div className={styles.content}>
+        <div className={styles.content__title}>
+          <h1>{title}</h1>
+        </div>
+        <div className={styles.content__description}>
+          {description && <span>{description}</span>}
+        </div>
       </div>
     </section>
   )

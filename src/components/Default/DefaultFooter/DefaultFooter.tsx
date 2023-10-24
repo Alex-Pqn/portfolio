@@ -12,10 +12,10 @@ const DefaultFooter = (): React.JSX.Element => {
         </div>
         <div className={styles.content__social}>
           <ul>
-            <li>
+            <li className={styles.content__social__item}>
               <SocialGithub />
             </li>
-            <li>
+            <li className={styles.content__social__item}>
               <SocialLinkedin />
             </li>
           </ul>

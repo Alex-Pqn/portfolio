@@ -14,9 +14,10 @@
   &__social {
     ul {
       @include row-flex-center;
-      li {
-        margin: 0 7px;
-      }
+    }
+
+    &__item {
+      margin: 0 5px;
     }
   }
 }

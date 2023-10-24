@@ -18,13 +18,13 @@ const Home = (): React.JSX.Element => {
           </div>
           <div className={styles.intro__text}>
             <h2>
-              Je suis un Développeur Web, à la recherche de son premier emploi
-              dans le secteur.
+              Je suis Développeur Web, et je suis à la recherche de mon premier
+              emploi dans le secteur.
             </h2>
             <p>
               Après trois années de formation en développement web, mon objectif
               est désormais d'intégrer une équipe dynamique, où, avec motivation
-              et détermination je pourrai mettre en pratique mes compétences
+              et détermination, je pourrai mettre en pratique mes compétences
               acquises au cours de ces dernières années.
             </p>
           </div>

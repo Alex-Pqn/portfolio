@@ -4,7 +4,10 @@ import { Document, Page, pdfjs } from 'react-pdf'
 import { useState } from 'react'
 
 import 'react-pdf/dist/Page/AnnotationLayer.css'
-pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`
+pdfjs.GlobalWorkerOptions.workerSrc = new URL(
+  'pdfjs-dist/build/pdf.worker.min.js',
+  import.meta.url
+).toString()
 
 const Props = {
   file: PropTypes.any,
@@ -13,10 +16,12 @@ const Props = {
 type PropsTypes = InferProps<typeof Props>
 
 const DocumentPdf = ({ file }: PropsTypes): React.JSX.Element => {
-  const [, setNumPages] = useState(null)
-  const [pageNumber] = useState(1)
+  const [, setNumPages] = useState<number>()
+  const [pageNumber] = useState<number>(1)
 
-  const onDocumentLoadSuccess = (numPages): void => setNumPages(numPages)
+  function onDocumentLoadSuccess({ numPages }: { numPages: number }): void {
+    setNumPages(numPages)
+  }
 
   return (
     <div className={styles.container}>
@@ -24,6 +29,7 @@ const DocumentPdf = ({ file }: PropsTypes): React.JSX.Element => {
         loading="Chargement du PDF..."
         file={file}
         onLoadSuccess={onDocumentLoadSuccess}
+        error="Impossible de récupérer le PDF. Veuillez réessayer dans un instant."
       >
         <Page renderTextLayer={false} pageNumber={pageNumber} />
       </Document>

@@ -2,6 +2,7 @@ import styles from './ButtonCopyToClipboard.module.scss'
 import PropTypes, { InferProps } from 'prop-types'
 import IconClipboardCheck from '@/components/Icon/IconClipboardCheck/IconClipboardCheck'
 import IconCheck from '@/components/Icon/IconCheck/IconCheck'
+import { useState } from 'react'
 
 const Props = {
   textToCopy: PropTypes.string.isRequired,
@@ -14,50 +15,31 @@ const ButtonCopyToClipboard = ({
   textToCopy,
   size,
 }: PropsTypes): React.JSX.Element => {
+  const [isCopied, setIsCopied] = useState(false)
+
   const copyToClipboard = () => {
     navigator.clipboard.writeText(textToCopy).then(() => {
-      const copyButtonContainer: HTMLElement = document.querySelector(
-        `.${styles['content__copy-button']}`
-      )!
-      const copiedIconContainer: HTMLElement = document.querySelector(
-        `.${styles['content__copied-icon']}`
-      )!
-
-      copyButtonContainer.classList.add(styles['content__copy-button--hidden'])
-      copiedIconContainer.classList.remove(
-        styles['content__copied-icon--hidden']
-      )
-
-      setTimeout(() => {
-        copyButtonContainer.classList.remove(
-          styles['content__copy-button--hidden']
-        )
-        copiedIconContainer.classList.add(
-          styles['content__copied-icon--hidden']
-        )
-      }, 1000)
+      setIsCopied(true)
+      setTimeout(() => setIsCopied(false), 1000)
     })
   }
 
   return (
     <div className={styles.container}>
       <div className={styles.content}>
-        {/* copy-button */}
-        <div className={styles['content__copy-button']}>
-          <button onClick={copyToClipboard}>
-            <IconClipboardCheck size={size} />
-          </button>
-        </div>
-        {/* copied-icon */}
-        <div
-          className={
-            styles['content__copied-icon'] +
-            ' ' +
-            styles['content__copied-icon--hidden']
-          }
-        >
-          <IconCheck color="rgb(0, 255, 0)" size={size} />
-        </div>
+        {isCopied ? (
+          /* copied-icon */
+          <div className={styles['content__copied-icon']}>
+            <IconCheck color="rgb(0, 255, 0)" size={size} />
+          </div>
+        ) : (
+          /* copy-button */
+          <div className={styles['content__copy-button']}>
+            <button onClick={copyToClipboard}>
+              <IconClipboardCheck size={size} />
+            </button>
+          </div>
+        )}
       </div>
     </div>
   )

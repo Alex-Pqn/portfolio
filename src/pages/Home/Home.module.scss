@@ -5,13 +5,49 @@
 }
 
 .content {
-  @include row-flex-center;
-  width: 50%;
+  @include column-flex-center;
+  width: 70%;
+}
 
-  &__left {
-    width: 30%;
+.intro {
+  display: flex;
+  justify-content: space-between;
+
+  &__photo {
+    width: 35%;
+    text-align: center;
+    img {
+      width: 100%;
+      border-radius: 200px 200px 0 0;
+      border-bottom: 2px solid rgb(255, 255, 255);
+      object-fit: cover;
+    }
   }
-  &__right {
-    width: 70%;
+  &__text {
+    width: 59%;
+    margin-top: 15px;
+    p {
+      line-height: 37px;
+      font-size: 1.5em;
+    }
+  }
+}
+
+.discover {
+  padding-top: 35px;
+
+  a {
+    @include row-flex-center;
+    transition: margin-left 0.1s ease-out;
+    font-size: 1.2em;
+
+    svg {
+      margin: 0 0 2px 2px;
+    }
+
+    &:hover {
+      margin-left: 10px;
+      opacity: 0.9;
+    }
   }
 }

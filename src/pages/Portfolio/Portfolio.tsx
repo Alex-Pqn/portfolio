@@ -1,22 +1,25 @@
 import styles from './Portfolio.module.scss'
-import { Helmet } from 'react-helmet'
+import { Helmet } from 'react-helmet-async'
 import DefaultHero from '@/components/Default/DefaultHero/DefaultHero'
 
 const Home = (): React.JSX.Element => {
   return (
-    <div className={styles.container}>
+    <>
       {/* Head */}
       <Helmet>
         <title>Portfolio • Alexandre Paquien</title>
       </Helmet>
-      {/* DefaultHero */}
-      <DefaultHero
-        title={'Portfolio.'}
-        description={'Parcourez mon portfolio'}
-      />
-      {/* Content */}
-      <section className={styles.content}>...</section>
-    </div>
+      {/* Container */}
+      <div className={styles.container}>
+        {/* DefaultHero */}
+        <DefaultHero
+          title={'Portfolio.'}
+          description={'Parcourez mon portfolio'}
+        />
+        {/* Content */}
+        <section className={styles.content}>...</section>
+      </div>
+    </>
   )
 }
 

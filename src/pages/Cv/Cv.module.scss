@@ -1,21 +1,8 @@
-.content {
-  &__cv {
-    padding-bottom: 75px;
-    iframe {
-      width: 60vh;
-      height: 80vh;
-    }
-  }
-}
-
-// Small devices
-@media only screen and (max-width: 768px) {
+// Medium & Large devices
+@media only screen and (min-width: 768px) {
   .content {
     &__cv {
-      iframe {
-        height: 65vh;
-        width: 35vh;
-      }
+      margin-bottom: 50px;
     }
   }
 }

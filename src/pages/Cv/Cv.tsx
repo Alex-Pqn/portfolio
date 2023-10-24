@@ -1,7 +1,8 @@
 import styles from './Cv.module.scss'
 import { Helmet } from 'react-helmet-async'
 import DefaultHero from '@/components/Default/DefaultHero/DefaultHero'
-import CV from '@/assets/CV.pdf'
+import DocumentPdf from '@/components/Document/DocumentPdf/DocumentPdf'
+import CV from '@/assets/CV - Alexandre Paquien.pdf'
 
 const Cv = (): React.JSX.Element => {
   return (
@@ -17,7 +18,7 @@ const Cv = (): React.JSX.Element => {
         {/* Content */}
         <section className={styles.content}>
           <div className={styles.content__cv}>
-            <iframe src={CV}></iframe>
+            <DocumentPdf file={CV} />
           </div>
         </section>
       </div>

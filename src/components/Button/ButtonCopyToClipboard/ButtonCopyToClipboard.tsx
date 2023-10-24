@@ -16,6 +16,11 @@ const ButtonCopyToClipboard = ({
   size,
 }: PropsTypes): React.JSX.Element => {
   const [isCopied, setIsCopied] = useState(false)
+  const [isDesktopDisplay] = useState(
+    document.documentElement.clientWidth >= 1200
+  )
+
+  if (!isDesktopDisplay) return null!
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(textToCopy).then(() => {

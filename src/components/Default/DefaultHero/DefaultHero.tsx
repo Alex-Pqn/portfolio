@@ -1,14 +1,11 @@
 import styles from './DefaultHero.module.scss'
-import PropTypes, { InferProps } from 'prop-types'
 
-const Props = {
-  title: PropTypes.string.isRequired,
-  description: PropTypes.string,
+interface Props {
+  title: string
+  description?: string
 }
 
-type PropsTypes = InferProps<typeof Props>
-
-const DefaultHero = ({ title, description }: PropsTypes): React.JSX.Element => {
+const DefaultHero = ({ title, description }: Props): React.JSX.Element => {
   return (
     <section className={styles.container}>
       <div className={styles.content}>
@@ -22,7 +19,5 @@ const DefaultHero = ({ title, description }: PropsTypes): React.JSX.Element => {
     </section>
   )
 }
-
-DefaultHero.propTypes = Props
 
 export default DefaultHero

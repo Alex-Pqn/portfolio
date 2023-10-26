@@ -1,17 +1,11 @@
 import './IconDownload.scss'
-import PropTypes, { InferProps } from 'prop-types'
 
-const Props = {
-  color: PropTypes.string,
-  size: PropTypes.string,
+interface Props {
+  color?: string
+  size?: string
 }
 
-type PropsTypes = InferProps<typeof Props>
-
-export const IconDownload = ({
-  color,
-  size,
-}: PropsTypes): React.JSX.Element => {
+export const IconDownload = ({ color, size }: Props): React.JSX.Element => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -32,7 +26,5 @@ export const IconDownload = ({
     </svg>
   )
 }
-
-IconDownload.propTypes = Props
 
 export default IconDownload

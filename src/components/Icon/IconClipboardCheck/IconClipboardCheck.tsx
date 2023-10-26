@@ -1,17 +1,14 @@
 import './IconClipboardCheck.scss'
-import PropTypes, { InferProps } from 'prop-types'
 
-const Props = {
-  color: PropTypes.string,
-  size: PropTypes.string,
+interface Props {
+  color?: string
+  size?: string
 }
-
-type PropsTypes = InferProps<typeof Props>
 
 export const IconClipboardCheck = ({
   color,
   size,
-}: PropsTypes): React.JSX.Element => {
+}: Props): React.JSX.Element => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -30,7 +27,5 @@ export const IconClipboardCheck = ({
     </svg>
   )
 }
-
-IconClipboardCheck.propTypes = Props
 
 export default IconClipboardCheck

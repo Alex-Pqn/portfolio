@@ -2,7 +2,7 @@ import styles from './SocialEmail.module.scss'
 import ButtonCopyToClipboard from '@/components/Button/ButtonCopyToClipboard/ButtonCopyToClipboard'
 
 export const SocialEmail = () => {
-  const email: string = 'apqn.pro@pm.me'
+  const email = 'apqn.pro@pm.me'
 
   return (
     <div className={styles.content}>

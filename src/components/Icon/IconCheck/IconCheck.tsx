@@ -1,14 +1,11 @@
 import './IconCheck.scss'
-import PropTypes, { InferProps } from 'prop-types'
 
-const Props = {
-  color: PropTypes.string,
-  size: PropTypes.string,
+interface Props {
+  color?: string
+  size?: string
 }
 
-type PropsTypes = InferProps<typeof Props>
-
-const IconCheck = ({ color, size }: PropsTypes): React.JSX.Element => {
+const IconCheck = ({ color, size }: Props): React.JSX.Element => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -22,7 +19,5 @@ const IconCheck = ({ color, size }: PropsTypes): React.JSX.Element => {
     </svg>
   )
 }
-
-IconCheck.propTypes = Props
 
 export default IconCheck

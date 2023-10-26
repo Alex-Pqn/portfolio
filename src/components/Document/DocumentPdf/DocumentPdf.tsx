@@ -1,21 +1,17 @@
 import styles from './DocumentPdf.module.scss'
-import PropTypes, { InferProps } from 'prop-types'
 import { Document, Page, pdfjs } from 'react-pdf'
 import { useState } from 'react'
-
 import 'react-pdf/dist/Page/AnnotationLayer.css'
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
   'pdfjs-dist/build/pdf.worker.min.js',
   import.meta.url
 ).toString()
 
-const Props = {
-  file: PropTypes.any,
+interface Props {
+  file?: File
 }
 
-type PropsTypes = InferProps<typeof Props>
-
-const DocumentPdf = ({ file }: PropsTypes): React.JSX.Element => {
+const DocumentPdf = ({ file }: Props): React.JSX.Element => {
   const [, setNumPages] = useState<number>()
   const [pageNumber] = useState<number>(1)
 
@@ -36,7 +32,5 @@ const DocumentPdf = ({ file }: PropsTypes): React.JSX.Element => {
     </div>
   )
 }
-
-DocumentPdf.propTypes = Props
 
 export default DocumentPdf

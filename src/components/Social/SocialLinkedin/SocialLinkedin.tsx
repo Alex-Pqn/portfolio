@@ -2,7 +2,7 @@ import styles from './SocialLinkedin.module.scss'
 import IconLinkedin from '@/components/Icon/IconLinkedin/IconLinkedin'
 
 export const SocialLinkedin = () => {
-  const linkedinLink: string = 'https://www.linkedin.com/in/alexandrepaquien/'
+  const linkedinLink = 'https://www.linkedin.com/in/alexandrepaquien/'
 
   return (
     <div className={styles['content']}>

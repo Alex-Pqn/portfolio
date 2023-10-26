@@ -1,25 +1,22 @@
 import styles from './ButtonCopyToClipboard.module.scss'
-import PropTypes, { InferProps } from 'prop-types'
 import IconClipboardCheck from '@/components/Icon/IconClipboardCheck/IconClipboardCheck'
 import IconCheck from '@/components/Icon/IconCheck/IconCheck'
 import { useState } from 'react'
 
-const Props = {
-  textToCopy: PropTypes.string.isRequired,
-  size: PropTypes.string,
+interface Props {
+  textToCopy: string
+  size?: string
 }
-
-type PropsTypes = InferProps<typeof Props>
 
 const ButtonCopyToClipboard = ({
   textToCopy,
   size,
-}: PropsTypes): React.JSX.Element => {
+}: Props): React.JSX.Element => {
   const [isCopied, setIsCopied] = useState(false)
-  const [isDesktopDisplay] = useState(
-    document.documentElement.clientWidth >= 1200
-  )
+  const isDesktopDisplay = document.documentElement.clientWidth >= 1200
 
+  // Hide component on mobile devices
+  // Event not supported
   if (!isDesktopDisplay) return null!
 
   const copyToClipboard = () => {
@@ -49,7 +46,5 @@ const ButtonCopyToClipboard = ({
     </div>
   )
 }
-
-ButtonCopyToClipboard.propTypes = Props
 
 export default ButtonCopyToClipboard

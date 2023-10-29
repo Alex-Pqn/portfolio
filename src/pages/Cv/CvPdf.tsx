@@ -1,4 +1,4 @@
-import styles from './DocumentPdf.module.scss'
+import styles from './Cv.module.scss'
 import { Document, Page, pdfjs } from 'react-pdf'
 import { useState } from 'react'
 import 'react-pdf/dist/Page/AnnotationLayer.css'
@@ -20,7 +20,7 @@ const DocumentPdf = ({ file }: Props): React.JSX.Element => {
   }
 
   return (
-    <div className={styles.container}>
+    <div className={styles.pdf}>
       <Document
         loading="Chargement du PDF..."
         file={file}

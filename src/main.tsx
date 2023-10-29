@@ -7,6 +7,7 @@ import Root from './routes/root'
 import Home from './pages/Home/Home'
 import Portfolio from './pages/Portfolio/Portfolio'
 import Cv from './pages/Cv/Cv'
+import Mentions from './pages/Mentions/Mentions'
 // import Contact from './pages/Contact/Contact'
 import Error from './pages/Error/Error'
 
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
       {
         path: '/cv',
         element: <Cv />,
+      },
+      {
+        path: '/mentions',
+        element: <Mentions />,
       },
       // {
       //   path: '/contact',

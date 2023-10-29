@@ -1,28 +1,31 @@
 @import '@/styles/mixins.scss';
 
-.container {
+.header {
   width: 100%;
   padding: 25px 0;
-}
 
-.nav {
-  &__links {
-    @include row-flex-center;
+  &__nav {
+    ul {
+      @include row-flex-center;
+      padding: 0;
 
-    li {
-      :global(.active) {
-        background-color: rgba(255, 255, 255, 0.1);
-      }
+      li {
+        list-style-type: none;
 
-      a {
-        margin: 0 5px;
-        font-size: 1.2em;
-        padding: calc(6px) 15px calc(4px) 15px;
-        // padding-top: 5px;
-        border-radius: 1.5rem;
-        &:hover {
-          transition: all 0.1s ease-out;
+        :global(.active) {
           background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        a {
+          margin: 0 5px;
+          font-size: 1.2em;
+          padding: calc(6px) 15px calc(4px) 15px;
+          // padding-top: 5px;
+          border-radius: 1.5rem;
+          &:hover {
+            transition: all 0.1s ease-out;
+            background-color: rgba(255, 255, 255, 0.1);
+          }
         }
       }
     }

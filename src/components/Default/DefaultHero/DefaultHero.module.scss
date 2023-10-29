@@ -1,8 +1,5 @@
-.container {
+.hero {
   padding: 20px 0 40px 0;
-}
-
-.content {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -15,12 +12,13 @@
   }
 
   &__description {
+    text-align: center;
   }
 }
 
 // Large devices
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
-  .content {
+  .hero {
     &__title {
       h1 {
         font-size: 5vw;
@@ -31,7 +29,7 @@
 
 // Medium devices
 @media only screen and (min-width: 768px) and (max-width: 992px) {
-  .content {
+  .hero {
     &__title {
       h1 {
         font-size: 6vw;
@@ -42,10 +40,8 @@
 
 // Small devices
 @media only screen and (max-width: 768px) {
-  .container {
+  .hero {
     padding: 10px 0 25px 0;
-  }
-  .content {
     &__title {
       h1 {
         font-size: 7.5vw;

@@ -9,13 +9,13 @@ const Contact = (): React.JSX.Element => {
       <Helmet>
         <title>Contact • Alexandre Paquien</title>
       </Helmet>
-      <div className={styles.container}>
+
+      <div className={styles.container} id="container">
         {/* DefaultHero */}
         <DefaultHero title={'Contact.'} description={'Contactez-moi'} />
-        {/* Content */}
-        <section className={styles.content}>
-          <span>...</span>
-        </section>
+
+        {/* Contact */}
+        <section className={styles.contact}></section>
       </div>
     </>
   )

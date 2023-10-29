@@ -27,22 +27,20 @@ const ButtonCopyToClipboard = ({
   }
 
   return (
-    <div className={styles.container}>
-      <div className={styles.content}>
-        {isCopied ? (
-          /* copied-icon */
-          <div className={styles['content__copied-icon']}>
-            <IconCheck color="rgb(0, 255, 0)" size={size} />
-          </div>
-        ) : (
-          /* copy-button */
-          <div className={styles['content__copy-button']}>
-            <button onClick={copyToClipboard}>
-              <IconClipboardCheck size={size} />
-            </button>
-          </div>
-        )}
-      </div>
+    <div className={styles['copy-to-clipboard']}>
+      {isCopied ? (
+        /* copied-icon */
+        <div className={styles['copy-to-clipboard__copied-icon']}>
+          <IconCheck color="rgb(0, 255, 0)" size={size} />
+        </div>
+      ) : (
+        /* copy-button */
+        <div className={styles['copy-to-clipboard__copy-button']}>
+          <button onClick={copyToClipboard} type="button">
+            <IconClipboardCheck size={size} />
+          </button>
+        </div>
+      )}
     </div>
   )
 }

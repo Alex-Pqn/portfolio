@@ -1,23 +1,61 @@
 @import '@/styles/mixins.scss';
+@import '@/styles/variables.scss';
 
-.container {
-  width: 100%;
-}
-
-.content {
+.footer {
   @include row-flex-center;
+  background-color: $footer-bg-color;
+  width: 100%;
+  padding: 10px 0 8px 0;
   justify-content: space-around;
 
+  a {
+    font-size: 1.1em;
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+
   &__email {
+    @include row-flex-center;
+
+    &__link {
+    }
+    &__copy-button {
+      padding-left: 6px;
+    }
+  }
+
+  &__mentions {
   }
 
   &__social {
-    ul {
-      @include row-flex-center;
+    @include row-flex-center;
+    padding: 0;
+
+    li {
+      margin: 0 5px;
+      list-style-type: none;
+    }
+  }
+}
+
+// Small devices
+@media only screen and (max-width: 768px) {
+  .footer {
+    @include column-flex-center;
+    flex-direction: column-reverse;
+
+    a {
+      font-size: 1.05em;
     }
 
-    &__item {
-      margin: 0 5px;
+    &__email,
+    &__mentions {
+      padding: 10px 0;
+    }
+
+    &__email {
+      order: 1;
     }
   }
 }

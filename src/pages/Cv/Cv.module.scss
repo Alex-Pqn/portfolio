@@ -1,11 +1,10 @@
 @import '@/styles/variables.scss';
 @import '@/styles/mixins.scss';
 
-.content {
-  &__cv {
-    margin-bottom: 50px;
-  }
+.container {
+}
 
+.cv {
   &__buttons {
     @include row-flex-center;
 
@@ -16,10 +15,10 @@
 
       button {
         @include row-flex-center;
-        background-color: darken($default-bg-color, 3%);
+        background-color: darken($app-color, 3%);
         font-size: 1.1em;
         border: 1px solid rgba(255, 255, 255, 0.3);
-        padding: 10px;
+        padding: 10px 10px 8px 10px;
         border-radius: 0.3em;
 
         svg {
@@ -29,9 +28,33 @@
         &:hover {
           transition: all ease-in-out 0.2s;
           border-color: rgba(255, 255, 255, 0.6);
-          background-color: darken($default-bg-color, 7%);
+          background-color: darken($app-color, 7%);
         }
       }
+    }
+  }
+
+  &__pdf {
+  }
+}
+
+.pdf {
+  @include row-flex-center;
+}
+
+// Small devices
+@media only screen and (max-width: 768px) {
+  .pdf {
+    canvas {
+      display: block;
+      user-select: none;
+      width: 297px !important;
+      height: 421px !important;
+    }
+
+    :global .annotationLayer {
+      width: 297px !important;
+      height: 421px !important;
     }
   }
 }

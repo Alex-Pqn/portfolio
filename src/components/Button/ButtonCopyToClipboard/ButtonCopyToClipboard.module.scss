@@ -1,13 +1,12 @@
 @import '@/styles/mixins.scss';
 
-.content {
+.copy-to-clipboard {
   padding-bottom: 4px;
 
   &__copy-button {
     button {
       @include transparent-button;
       @include column-flex-center;
-      padding: 0;
       cursor: pointer;
 
       &:hover {

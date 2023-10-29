@@ -9,15 +9,17 @@ main {
   justify-content: center;
   align-items: flex-start;
   flex: 1;
+
+  // Small devices
+  @media only screen and (max-width: 768px) {
+    width: 85%;
+  }
 }
 
 body {
   background: linear-gradient(
-    $default-bg-color,
-    $default-bg-color,
-    darken($default-bg-color, 3%),
-    darken($default-bg-color, 3%),
-    darken($default-bg-color, 7%),
-    darken($default-bg-color, 15%)
+    darken($app-color, 3%),
+    $app-color,
+    darken($app-color, 3%)
   );
 }

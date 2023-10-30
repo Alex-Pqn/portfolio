@@ -3,7 +3,7 @@
 
 .footer {
   @include row-flex-center;
-  background-color: $footer-bg-color;
+  background-color: darken($app-color, 8%);
   width: 100%;
   padding: 10px 0 8px 0;
   justify-content: space-around;

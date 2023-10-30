@@ -19,7 +19,7 @@
     }
 
     &:hover {
-      background-color: darken($app-color, 5%);
+      background-color: lighten($app-color, 1%);
       border-left-color: white;
     }
   }

@@ -10,6 +10,12 @@ main {
   align-items: flex-start;
   flex: 1;
 
+  // background: linear-gradient(
+  //   darken($app-color, 3%),
+  //   $app-color,
+  //   darken($app-color, 3%)
+  // );
+
   // Small devices
   @media only screen and (max-width: 768px) {
     width: 85%;
@@ -17,9 +23,5 @@ main {
 }
 
 body {
-  background: linear-gradient(
-    darken($app-color, 3%),
-    $app-color,
-    darken($app-color, 3%)
-  );
+  background-color: $app-color;
 }

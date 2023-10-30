@@ -24,5 +24,6 @@
 #container {
   width: 100%;
   @include column-flex-center;
+  padding-top: 110px;
   padding-bottom: 50px;
 }

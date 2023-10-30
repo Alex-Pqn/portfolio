@@ -19,6 +19,7 @@ const Root = (): React.JSX.Element => {
       {/* Head */}
       <Helmet>
         <title>Alexandre Paquien • Développeur Web</title>
+        <meta name="robots" content="index,follow" />
       </Helmet>
 
       {/* App */}

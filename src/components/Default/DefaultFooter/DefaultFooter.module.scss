@@ -17,12 +17,6 @@
 
   &__email {
     @include row-flex-center;
-
-    &__link {
-    }
-    &__copy-button {
-      padding-left: 6px;
-    }
   }
 
   &__mentions {

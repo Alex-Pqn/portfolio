@@ -1,4 +1,3 @@
-import ButtonCopyToClipboard from '@/components/Button/ButtonCopyToClipboard/ButtonCopyToClipboard'
 import styles from './DefaultFooter.module.scss'
 import SocialGithub from '@/components/Social/SocialGithub/SocialGithub'
 import SocialLinkedin from '@/components/Social/SocialLinkedin/SocialLinkedin'
@@ -11,12 +10,7 @@ const DefaultFooter = (): React.JSX.Element => {
     <footer className={styles.footer}>
       {/* email */}
       <div className={styles.footer__email}>
-        <div className={styles.footer__email__link}>
-          <a href={`mailto:${email}`}>{email}</a>
-        </div>
-        <div className={styles['footer__email__copy-button']}>
-          <ButtonCopyToClipboard textToCopy={email} />
-        </div>
+        <a href={`mailto:${email}`}>{email}</a>
       </div>
       {/* mentions */}
       <div className={styles.footer__mentions}>

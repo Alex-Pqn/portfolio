@@ -1,4 +1,5 @@
 @import '@/styles/mixins.scss';
+@import '@/styles/variables.scss';
 
 #app {
   display: flex;
@@ -18,6 +19,19 @@
 
   a {
     text-decoration: none;
+  }
+}
+
+.button {
+  background-color: darken($app-color, 3%);
+  font-size: 1.1em;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 10px 10px 8px 10px;
+  border-radius: 0.3em;
+  &:hover {
+    transition: all ease-in-out 0.2s;
+    border-color: rgba(255, 255, 255, 0.6);
+    background-color: darken($app-color, 7%);
   }
 }
 

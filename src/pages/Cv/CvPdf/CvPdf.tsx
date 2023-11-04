@@ -1,4 +1,4 @@
-import styles from './Cv.module.scss'
+import styles from './CvPdf.module.scss'
 import { Document, Page, pdfjs } from 'react-pdf'
 import { useState } from 'react'
 import 'react-pdf/dist/Page/AnnotationLayer.css'
@@ -11,7 +11,7 @@ interface Props {
   file?: File
 }
 
-const DocumentPdf = ({ file }: Props): React.JSX.Element => {
+const CvPdf = ({ file }: Props): React.JSX.Element => {
   const [, setNumPages] = useState<number>()
   const [pageNumber] = useState<number>(1)
 
@@ -33,4 +33,4 @@ const DocumentPdf = ({ file }: Props): React.JSX.Element => {
   )
 }
 
-export default DocumentPdf
+export default CvPdf

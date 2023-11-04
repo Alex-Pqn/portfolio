@@ -1,7 +1,7 @@
 import styles from './SocialGithub.module.scss'
 import IconGithub from '@/components/Icon/IconGithub/IconGithub'
 
-export const SocialGithub = () => {
+const SocialGithub = (): React.JSX.Element => {
   const githubLink: string = 'https://github.com/Alex-Pqn'
 
   return (

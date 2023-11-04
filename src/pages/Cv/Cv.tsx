@@ -1,7 +1,7 @@
 import styles from './Cv.module.scss'
 import { Helmet } from 'react-helmet-async'
 import DefaultHero from '@/components/Default/DefaultHero/DefaultHero'
-import DocumentPdf from '@/pages/Cv/CvPdf'
+import CvPdf from '@/pages/Cv/CvPdf/CvPdf'
 import IconDownload from '@/components/Icon/IconDownload/IconDownload'
 import { Link } from 'react-router-dom'
 import IconArrowUpRight from '@/components/Icon/IconArrowUpRight/IconArrowUpRight'
@@ -52,7 +52,7 @@ const Cv = (): React.JSX.Element => {
           </div>
           {/* CV */}
           <div className={styles['cv__pdf']}>
-            <DocumentPdf file={cvFilePath as unknown as File} />
+            <CvPdf file={cvFilePath as unknown as File} />
           </div>
         </section>
       </div>

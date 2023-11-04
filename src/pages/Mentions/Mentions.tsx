@@ -27,7 +27,8 @@ const Mentions = (): React.JSX.Element => {
               sens des articles 1123 et suivants du Code civil, ou personne
               morale, qui visite le Site objet des présentes conditions
               générales.
-              <br />
+            </p>
+            <p>
               <b>Prestations et Services :</b> <a href={siteUrl}>{siteUrl}</a>{' '}
               met à disposition des Clients :
             </p>
@@ -89,9 +90,9 @@ const Mentions = (): React.JSX.Element => {
                 href="https://www.o2switch.fr/"
                 rel="noreferrer nofollow noopener"
               >
-                o2switch.fr
+                https://www.o2switch.fr/
               </a>{' '}
-              – Chemin des Pardiaux 63000 Clermont-Ferrand 04 44 44 60 40
+              – Chemin des Pardiaux 63000 Clermont-Ferrand, 04 44 44 60 40
             </p>
             <p>
               <strong>Délégué à la protection des données</strong> : Alexandre

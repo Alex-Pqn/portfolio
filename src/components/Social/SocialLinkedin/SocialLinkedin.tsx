@@ -1,7 +1,7 @@
 import styles from './SocialLinkedin.module.scss'
 import IconLinkedin from '@/components/Icon/IconLinkedin/IconLinkedin'
 
-export const SocialLinkedin = () => {
+const SocialLinkedin = (): React.JSX.Element => {
   const linkedinLink = 'https://www.linkedin.com/in/alexandrepaquien/'
 
   return (

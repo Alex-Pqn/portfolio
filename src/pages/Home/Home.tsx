@@ -13,10 +13,10 @@ const Home = (): React.JSX.Element => {
       <div className={styles.home}>
         {/* Intro */}
         <section className={styles.home__intro}>
-          <div className={styles.home__intro__photo}>
+          <div className={styles['home__intro-photo']}>
             <img src={Photo} width="350px" height="450px" alt="Photo" />
           </div>
-          <div className={styles.home__intro__text}>
+          <div className={styles['home__intro-text']}>
             <h2>Je m'appelle Alexandre, je suis Développeur Web..</h2>
             <p>
               Et après trois années de formation dans le développement web, mon

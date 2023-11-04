@@ -37,24 +37,3 @@
   &__pdf {
   }
 }
-
-.pdf {
-  @include row-flex-center;
-}
-
-// Small devices
-@media only screen and (max-width: 768px) {
-  .pdf {
-    canvas {
-      display: block;
-      user-select: none;
-      width: 297px !important;
-      height: 421px !important;
-    }
-
-    :global .annotationLayer {
-      width: 297px !important;
-      height: 421px !important;
-    }
-  }
-}

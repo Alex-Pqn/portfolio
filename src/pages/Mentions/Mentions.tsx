@@ -86,13 +86,8 @@ const Mentions = (): React.JSX.Element => {
             </p>
             <p>
               <strong>Hébergeur</strong> :{' '}
-              <a
-                href="https://www.o2switch.fr/"
-                rel="noreferrer nofollow noopener"
-              >
-                https://www.o2switch.fr/
-              </a>{' '}
-              – Chemin des Pardiaux 63000 Clermont-Ferrand, 04 44 44 60 40
+              <a href="https://www.o2switch.fr/">https://www.o2switch.fr/</a> –
+              Chemin des Pardiaux 63000 Clermont-Ferrand, 04 44 44 60 40
             </p>
             <p>
               <strong>Délégué à la protection des données</strong> : Alexandre

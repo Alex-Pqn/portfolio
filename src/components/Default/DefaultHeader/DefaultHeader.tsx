@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import styles from './DefaultHeader.module.scss'
 
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
 const DefaultHeader = (): React.JSX.Element => {
   const [lastScrollPosition, setLastScrollPosition] = useState(0)
@@ -26,7 +26,9 @@ const DefaultHeader = (): React.JSX.Element => {
             <NavLink to={'/portfolio'}>Portfolio</NavLink>
           </li>
           <li>
-            <NavLink to={'/cv'}>CV</NavLink>
+            <Link to={'/CV.pdf'} target="_blank">
+              CV
+            </Link>
           </li>
         </ul>
       </nav>

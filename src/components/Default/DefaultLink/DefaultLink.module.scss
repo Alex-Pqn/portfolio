@@ -1,6 +1,6 @@
 @import '@/styles/mixins.scss';
 
-.container {
+.default-link {
   a {
     @include row-flex-center;
     transition: margin-left 0.1s ease-out;

@@ -1,6 +1,7 @@
 @import '@/styles/mixins.scss';
+@import '@/styles/variables.scss';
 
-.container {
+#container {
 }
 
 .home {
@@ -18,21 +19,20 @@
     img {
       width: 100%;
       height: 100%;
-      border-bottom: 3px solid white;
       border-radius: 200px 200px 0 0;
       object-fit: cover;
     }
   }
   &__intro-text {
-    width: 59%;
+    width: 60%;
     margin-top: 15px;
 
     h2 {
-      line-height: 2.4vw;
-      font-size: 1.9vw;
+      line-height: 2.25vw;
+      font-size: 1.63vw;
     }
     p {
-      margin-top: 10px;
+      margin: 12px 0;
       line-height: 1.9vw;
       font-size: 1.2vw;
     }
@@ -43,37 +43,30 @@
 }
 
 // Large devices
-@media only screen and (min-width: 992px) and (max-width: 1200px) {
+@media only screen and (min-width: 992px) and (max-width: 1500px) {
   .home {
     width: 90%;
-    &__intro-photo {
-      width: 35%;
-    }
     &__intro-text {
+      margin-top: 10px;
+
       h2 {
-        line-height: 3.6vw;
-        font-size: 3vw;
+        line-height: 3.05vw;
+        font-size: 2.2vw;
       }
       p {
-        line-height: 3.2vw;
-        font-size: 2.2vw;
+        margin: 20px 0;
+        line-height: 2.7vw;
+        font-size: 1.8vw;
       }
     }
   }
 }
 
-// Medium devices
-@media only screen and (min-width: 768px) and (max-width: 992px) {
+// Medium & Large devices
+@media only screen and (min-width: 768px) {
   .home {
-    &__intro-text {
-      h2 {
-        line-height: 4.1vw;
-        font-size: 3.5vw;
-      }
-      p {
-        line-height: 3.8vw;
-        font-size: 2.5vw;
-      }
+    &__intro-photo {
+      border-bottom: 3px solid rgb(212, 212, 212);
     }
   }
 }
@@ -85,6 +78,25 @@
   }
 }
 
+// Medium devices
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+  .home {
+    &__intro-text {
+      margin-top: 5px;
+
+      h2 {
+        line-height: 3.8vw;
+        font-size: 2.7vw;
+      }
+      p {
+        margin: 15px 0;
+        line-height: 3.5vw;
+        font-size: 2.4vw;
+      }
+    }
+  }
+}
+
 // Small devices
 @media only screen and (max-width: 768px) {
   .home {
@@ -92,22 +104,66 @@
       @include column-flex-center;
     }
     &__intro-photo {
-      width: 100%;
-      height: 350px;
       img {
         border-radius: 75px 75px 0 0;
       }
     }
     &__intro-text {
-      width: 100%;
-      margin-top: 30px;
-      h2 {
-        line-height: 6.2vw;
-        font-size: 4.7vw;
+      margin-top: 0;
+      h1 {
+        background-color: darken($app-color, 4%);
+        padding: 20px;
       }
       p {
-        line-height: 6vw;
+        margin: 0;
+        background-color: darken($app-color, 1%);
+        padding: 20px;
+      }
+    }
+  }
+}
+
+// Small devices
+@media only screen and (min-width: 568px) and (max-width: 768px) {
+  .home {
+    &__intro-text,
+    &__intro-photo {
+      width: 90%;
+    }
+    &__intro-photo {
+      height: 400px;
+    }
+    &__intro-text {
+      h1 {
+        line-height: 5.4vw;
         font-size: 3.7vw;
+      }
+      p {
+        line-height: 5vw;
+        font-size: 3.3vw;
+      }
+    }
+  }
+}
+
+// Small devices
+@media only screen and (max-width: 568px) {
+  .home {
+    &__intro-text,
+    &__intro-photo {
+      width: 100%;
+    }
+    &__intro-photo {
+      height: 300px;
+    }
+    &__intro-text {
+      h1 {
+        line-height: 8vw;
+        font-size: 5.6vw;
+      }
+      p {
+        line-height: 7.5vw;
+        font-size: 4.7vw;
       }
     }
   }

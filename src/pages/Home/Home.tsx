@@ -4,32 +4,48 @@ import Photo from '@/assets/photo.jpg'
 import DefaultLink from '@/components/Default/DefaultLink/DefaultLink'
 
 const Home = (): React.JSX.Element => {
+  const isMobileDisplay = document.documentElement.clientWidth <= 768
+
   return (
     <div className={styles.container} id="container">
       {/* DefaultHero */}
-      <DefaultHero title={'Qui suis-je ?'} />
+      {!isMobileDisplay && <DefaultHero title={"Je m'appelle Alexandre."} />}
 
       {/* Home */}
-      <div className={styles.home}>
+      <section className={styles.home}>
         {/* Intro */}
-        <section className={styles.home__intro}>
+        <div className={styles.home__intro}>
           <div className={styles['home__intro-photo']}>
-            <img src={Photo} width="350px" height="450px" alt="Photo" />
+            <img src={Photo} alt="Photo" />
           </div>
           <div className={styles['home__intro-text']}>
-            <h2>Je m'appelle Alexandre, je suis Développeur Web..</h2>
+            {isMobileDisplay ? (
+              <h1>
+                Je m'appelle Alexandre, j'ai 19 ans, et je suis à la recherche
+                de mon premier emploi.
+              </h1>
+            ) : (
+              <h2>
+                J'ai 19 ans, et après trois années de formation, je suis à la
+                recherche de mon premier emploi.
+              </h2>
+            )}
             <p>
-              Et après trois années de formation dans le développement web, mon
-              objectif est désormais d'intégrer une équipe dynamique, où, avec
-              motivation et détermination, je pourrai mettre en pratique mes
-              compétences acquises au cours de ces dernières années.
+              Mes deux formations dans le développement web m'ont permis
+              d'explorer des technologies telles que React et Vue.js, le
+              framework Express pour la création d'API REST, mais aussi MySQL et
+              MongoDB.
+            </p>
+            <p>
+              Motivé et passionné par ce domaine, mon objectif est désormais
+              d'intégrer une équipe dynamique.
             </p>
           </div>
-        </section>
-        <section className={styles.home__discover}>
+        </div>
+        <div className={styles.home__discover}>
           <DefaultLink text="Découvrir mon portfolio" to={'/portfolio'} />
-        </section>
-      </div>
+        </div>
+      </section>
     </div>
   )
 }

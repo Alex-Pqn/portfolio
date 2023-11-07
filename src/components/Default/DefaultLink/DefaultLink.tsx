@@ -9,7 +9,7 @@ interface Props {
 
 const DefaultLink = ({ to, text }: Props): React.JSX.Element => {
   return (
-    <div className={styles.container}>
+    <div className={styles['default-link']}>
       <Link to={to}>
         {text} <IconArrowRight size="27px" />
       </Link>

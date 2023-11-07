@@ -7,24 +7,41 @@ const DefaultFooter = (): React.JSX.Element => {
   const email = 'contact@alexandrepaquien.com'
 
   return (
-    <footer className={styles.footer}>
-      {/* email */}
-      <div className={styles.footer__email}>
-        <a href={`mailto:${email}`}>{email}</a>
+    <footer className={styles['footer']}>
+      <div className={styles['footer__items']}>
+        {/* email */}
+        <div
+          className={[
+            styles['footer__items-email'],
+            styles['footer__items-item'],
+          ].join(' ')}
+        >
+          <a href={`mailto:${email}`}>{email}</a>
+        </div>
+        {/* mentions */}
+        <div
+          className={[
+            styles['footer__items-mentions'],
+            styles['footer__items-item'],
+          ].join(' ')}
+        >
+          <Link to={'/mentions'}>Mentions légales</Link>
+        </div>
+        {/* social */}
+        <ul
+          className={[
+            styles['footer__items-social'],
+            styles['footer__items-item'],
+          ].join(' ')}
+        >
+          <li>
+            <SocialGithub />
+          </li>
+          <li>
+            <SocialLinkedin />
+          </li>
+        </ul>
       </div>
-      {/* mentions */}
-      <div className={styles.footer__mentions}>
-        <Link to={'/mentions'}>Mentions légales</Link>
-      </div>
-      {/* social */}
-      <ul className={styles.footer__social}>
-        <li>
-          <SocialGithub />
-        </li>
-        <li>
-          <SocialLinkedin />
-        </li>
-      </ul>
     </footer>
   )
 }

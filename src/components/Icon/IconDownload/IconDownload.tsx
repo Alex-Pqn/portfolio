@@ -5,7 +5,7 @@ interface Props {
   size?: string
 }
 
-const IconDownload = ({ color, size }: Props): React.JSX.Element => {
+function IconDownload({ color, size }: Props) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

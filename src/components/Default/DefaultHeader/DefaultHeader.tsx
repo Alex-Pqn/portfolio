@@ -3,7 +3,7 @@ import styles from './DefaultHeader.module.scss'
 
 import { Link, NavLink } from 'react-router-dom'
 
-const DefaultHeader = (): React.JSX.Element => {
+function DefaultHeader() {
   const [lastScrollPosition, setLastScrollPosition] = useState(0)
   const [headerScrollTriggerPosition] = useState(25)
 

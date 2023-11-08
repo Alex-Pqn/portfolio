@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async'
 import DefaultHero from '@/components/Default/DefaultHero/DefaultHero'
 import DefaultLink from '@/components/Default/DefaultLink/DefaultLink'
 
-const Error = (): React.JSX.Element => {
+function Error() {
   return (
     <>
       {/* Head */}

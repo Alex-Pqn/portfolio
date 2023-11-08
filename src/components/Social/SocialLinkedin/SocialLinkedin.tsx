@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import styles from './SocialLinkedin.module.scss'
 import IconLinkedin from '@/components/Icon/IconLinkedin/IconLinkedin'
 
-const SocialLinkedin = (): React.JSX.Element => {
+function SocialLinkedin() {
   const linkedinLink = 'https://www.linkedin.com/in/alexandrepaquien/'
 
   return (

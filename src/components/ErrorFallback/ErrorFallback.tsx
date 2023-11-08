@@ -9,10 +9,7 @@ interface Props {
   resetErrorBoundary: (...args: unknown[]) => void
 }
 
-const ErrorFallback = ({
-  error,
-  resetErrorBoundary,
-}: Props): React.JSX.Element => {
+function ErrorFallback({ error, resetErrorBoundary }: Props) {
   return (
     <section className={styles['error-fallback']}>
       <h1>Une erreur est survenue.</h1>

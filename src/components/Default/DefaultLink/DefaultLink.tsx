@@ -7,7 +7,7 @@ interface Props {
   text: string
 }
 
-const DefaultLink = ({ to, text }: Props): React.JSX.Element => {
+function DefaultLink({ to, text }: Props) {
   return (
     <div className={styles['default-link']}>
       <Link to={to}>

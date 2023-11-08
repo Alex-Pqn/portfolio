@@ -2,7 +2,7 @@ import styles from './Mentions.module.scss'
 import { Helmet } from 'react-helmet-async'
 import DefaultHero from '@/components/Default/DefaultHero/DefaultHero'
 
-const Mentions = (): React.JSX.Element => {
+function Mentions() {
   const siteUrl = 'https://alexandrepaquien.com/'
   const email = 'contact@alexandrepaquien.com'
 

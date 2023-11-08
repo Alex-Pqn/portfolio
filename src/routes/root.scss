@@ -1,6 +1,28 @@
 @import '@/styles/mixins.scss';
 @import '@/styles/variables.scss';
 
+main {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex: 1;
+
+  // Small devices
+  @media only screen and (max-width: 992px) {
+    width: 90%;
+  }
+
+  // Small devices
+  @media only screen and (max-width: 568px) {
+    width: 95%;
+  }
+}
+
+body {
+  background-color: $app-color;
+}
+
 #app {
   display: flex;
   align-items: center;
@@ -13,7 +35,8 @@
   }
 
   h1,
-  h2 {
+  h2,
+  h3 {
     margin: 0;
   }
 

@@ -3,7 +3,7 @@ import DefaultHero from '@/components/Default/DefaultHero/DefaultHero'
 import Photo from '@/assets/photo.jpg'
 import DefaultLink from '@/components/Default/DefaultLink/DefaultLink'
 
-const Home = (): React.JSX.Element => {
+function Home() {
   const isMobileDisplay = document.documentElement.clientWidth <= 768
 
   return (

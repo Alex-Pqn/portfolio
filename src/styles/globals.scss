@@ -2,26 +2,3 @@
 @import './mixins';
 @import './normalize.scss';
 @import './variables';
-
-main {
-  width: 80%;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex: 1;
-
-  // background: linear-gradient(
-  //   darken($app-color, 3%),
-  //   $app-color,
-  //   darken($app-color, 3%)
-  // );
-
-  // Small devices
-  @media only screen and (max-width: 992px) {
-    width: 90%;
-  }
-}
-
-body {
-  background-color: $app-color;
-}

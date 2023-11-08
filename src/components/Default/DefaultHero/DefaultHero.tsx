@@ -5,7 +5,7 @@ interface Props {
   description?: string
 }
 
-const DefaultHero = ({ title, description }: Props): React.JSX.Element => {
+function DefaultHero({ title, description }: Props) {
   return (
     <section className={styles.hero}>
       <div className={styles.hero__title}>

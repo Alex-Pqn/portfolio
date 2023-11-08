@@ -2,7 +2,7 @@ import styles from './Contact.module.scss'
 import { Helmet } from 'react-helmet-async'
 import DefaultHero from '@/components/Default/DefaultHero/DefaultHero'
 
-const Contact = (): React.JSX.Element => {
+function Contact() {
   return (
     <>
       {/* Head */}

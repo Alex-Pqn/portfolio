@@ -3,7 +3,7 @@ import SocialGithub from '@/components/Social/SocialGithub/SocialGithub'
 import SocialLinkedin from '@/components/Social/SocialLinkedin/SocialLinkedin'
 import { Link } from 'react-router-dom'
 
-const DefaultFooter = (): React.JSX.Element => {
+function DefaultFooter() {
   const email = 'contact@alexandrepaquien.com'
 
   return (

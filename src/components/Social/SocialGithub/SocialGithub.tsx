@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import styles from './SocialGithub.module.scss'
 import IconGithub from '@/components/Icon/IconGithub/IconGithub'
 
-const SocialGithub = (): React.JSX.Element => {
+function SocialGithub() {
   const githubLink: string = 'https://github.com/Alex-Pqn'
 
   return (

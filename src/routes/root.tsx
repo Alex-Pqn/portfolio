@@ -8,7 +8,7 @@ import ErrorFallback from '@/components/ErrorFallback/ErrorFallback'
 import DefaultHeader from '@/components/Default/DefaultHeader/DefaultHeader'
 import DefaultFooter from '@/components/Default/DefaultFooter/DefaultFooter'
 
-const Root = (): React.JSX.Element => {
+function Root() {
   return (
     <>
       {/* Head */}

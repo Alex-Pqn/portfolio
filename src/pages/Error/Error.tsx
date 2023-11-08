@@ -21,11 +21,9 @@ const Error = (): React.JSX.Element => {
         />
 
         {/* Error */}
-        <div className={styles.error}>
-          <section className={styles['error__back-to-home']}>
-            <DefaultLink to={'/'} text="Retourner à l'accueil" />
-          </section>
-        </div>
+        <section className={styles.error}>
+          <DefaultLink to={'/'} text="Retourner à l'accueil" />
+        </section>
       </div>
     </>
   )

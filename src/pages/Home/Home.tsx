@@ -10,11 +10,10 @@ const Home = (): React.JSX.Element => {
     <div className={styles.container} id="container">
       {/* DefaultHero */}
       {!isMobileDisplay && <DefaultHero title={"Je m'appelle Alexandre."} />}
-
       {/* Home */}
       <section className={styles.home}>
         {/* Intro */}
-        <div className={styles.home__intro}>
+        <section className={styles.home__intro}>
           <div className={styles['home__intro-photo']}>
             <img src={Photo} alt="Photo" />
           </div>
@@ -41,10 +40,10 @@ const Home = (): React.JSX.Element => {
               d'intégrer une équipe dynamique.
             </p>
           </div>
-        </div>
-        <div className={styles.home__discover}>
+        </section>
+        <section className={styles.home__discover}>
           <DefaultLink text="Découvrir mon portfolio" to={'/portfolio'} />
-        </div>
+        </section>
       </section>
     </div>
   )

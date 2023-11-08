@@ -17,15 +17,15 @@ const DefaultHeader = (): React.JSX.Element => {
           : ''
       }`}
     >
-      <nav className={styles.header__nav}>
-        <ul>
-          <li>
+      <nav className={styles['header-nav']}>
+        <ul className={styles['header-nav__items']}>
+          <li className={styles['header-nav__item']}>
             <NavLink to={'/'}>À Propos</NavLink>
           </li>
-          <li>
+          <li className={styles['header-nav__item']}>
             <NavLink to={'/portfolio'}>Portfolio</NavLink>
           </li>
-          <li>
+          <li className={styles['header-nav__item']}>
             <Link to={'/CV.pdf'} target="_blank">
               CV
             </Link>

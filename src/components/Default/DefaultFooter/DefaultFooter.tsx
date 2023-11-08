@@ -8,12 +8,12 @@ const DefaultFooter = (): React.JSX.Element => {
 
   return (
     <footer className={styles['footer']}>
-      <div className={styles['footer__items']}>
+      <div className={styles['footer__containers']}>
         {/* email */}
         <div
           className={[
-            styles['footer__items-email'],
-            styles['footer__items-item'],
+            styles['footer__email'],
+            styles['footer__container'],
           ].join(' ')}
         >
           <a href={`mailto:${email}`}>{email}</a>
@@ -21,8 +21,8 @@ const DefaultFooter = (): React.JSX.Element => {
         {/* mentions */}
         <div
           className={[
-            styles['footer__items-mentions'],
-            styles['footer__items-item'],
+            styles['footer__mentions'],
+            styles['footer__container'],
           ].join(' ')}
         >
           <Link to={'/mentions'}>Mentions légales</Link>
@@ -30,8 +30,8 @@ const DefaultFooter = (): React.JSX.Element => {
         {/* social */}
         <ul
           className={[
-            styles['footer__items-social'],
-            styles['footer__items-item'],
+            styles['footer__social'],
+            styles['footer__container'],
           ].join(' ')}
         >
           <li>

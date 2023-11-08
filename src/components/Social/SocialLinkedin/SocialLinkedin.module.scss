@@ -1,6 +1,8 @@
+@import '@/styles/mixins.scss';
+
 .social-linkedin {
   a {
-    display: flex;
+    @include row-flex-center;
 
     &:hover {
       opacity: 0.9;

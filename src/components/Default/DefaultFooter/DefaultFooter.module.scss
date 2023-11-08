@@ -2,42 +2,41 @@
 @import '@/styles/variables.scss';
 
 .footer {
-  background-color: darken($app-color, 8%);
   @include row-flex-center;
   width: 100%;
+  background-color: darken($app-color, 8%);
   padding: 20px 0 15px 0;
 
-  a {
-    font-size: 1.1em;
-    &:hover {
-      opacity: 0.9;
-    }
-  }
-
-  &__items {
+  &__containers {
     @include row-flex-center;
     width: 90%;
   }
 
-  &__items-item {
+  &__container {
     width: 33.33%;
+    a {
+      font-size: 1.1em;
+      &:hover {
+        opacity: 0.9;
+      }
+    }
   }
 
-  &__items-email {
+  &__email {
     display: flex;
-    justify-content: flex-start;
+    align-items: center;
   }
 
-  &__items-mentions {
+  &__mentions {
     @include row-flex-center;
   }
 
-  &__items-social {
+  &__social {
     display: flex;
+    align-items: center;
     justify-content: flex-end;
     padding: 0;
     margin: 0;
-
     li {
       margin: 0 6px;
       list-style-type: none;
@@ -48,25 +47,24 @@
 // Small devices
 @media only screen and (max-width: 992px) {
   .footer {
-    &__items {
+    &__containers {
       @include column-flex-center;
       flex-direction: column-reverse;
     }
 
-    &__items-item {
+    &__container {
       width: 100%;
       justify-content: center;
+      a {
+        font-size: 1.05em;
+      }
     }
 
-    a {
-      font-size: 1.05em;
-    }
-
-    &__items-social {
+    &__social {
       padding: 25px 0;
     }
 
-    &__items-email {
+    &__email {
       order: 1;
     }
   }

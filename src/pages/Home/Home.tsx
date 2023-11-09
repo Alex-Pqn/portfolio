@@ -20,24 +20,24 @@ function Home() {
           <div className={styles['home__intro-text']}>
             {isMobileDisplay ? (
               <h1>
-                Je m'appelle Alexandre, j'ai 19 ans, et je suis à la recherche
-                de mon premier emploi.
+                Je m&apos;appelle Alexandre, j&apos;ai 19 ans, et je suis à la
+                recherche de mon premier emploi.
               </h1>
             ) : (
               <h2>
-                J'ai 19 ans, et après trois années de formation, je suis à la
-                recherche de mon premier emploi.
+                J&apos;ai 19 ans, et après trois années de formation, je suis à
+                la recherche de mon premier emploi.
               </h2>
             )}
             <p>
-              Mes deux formations dans le développement web m'ont permis
-              d'explorer des technologies telles que React et Vue.js, le
-              framework Express pour la création d'API REST, mais aussi MySQL et
-              MongoDB.
+              Mes deux formations dans le développement web m&apos;ont permis
+              d&apos;explorer des technologies telles que React et Vue.js, le
+              framework Express pour la création d&apos;API REST, mais aussi
+              MySQL et MongoDB.
             </p>
             <p>
               Motivé et passionné par ce domaine, mon objectif est désormais
-              d'intégrer une équipe dynamique.
+              d&apos;intégrer une équipe dynamique.
             </p>
           </div>
         </section>

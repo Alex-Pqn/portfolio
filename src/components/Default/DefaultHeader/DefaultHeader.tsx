@@ -11,7 +11,7 @@ function DefaultHeader() {
 
   return (
     <header
-      className={`${styles['header']} ${
+      className={`${styles.header} ${
         lastScrollPosition >= headerScrollTriggerPosition
           ? styles['header--scroll']
           : ''

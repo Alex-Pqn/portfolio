@@ -51,3 +51,10 @@
     }
   }
 }
+
+// Small devices
+@media only screen and (max-width: 568px) {
+  .header-nav__item a {
+    font-size: 1.1em;
+  }
+}

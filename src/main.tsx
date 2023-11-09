@@ -2,6 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
+import { Provider } from 'react-redux'
+import { store } from './store/store'
 
 import Root from './routes/root'
 import Home from './pages/Home/Home'
@@ -42,7 +44,9 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <HelmetProvider>
-      <RouterProvider router={router} />
+      <Provider store={store}>
+        <RouterProvider router={router} />
+      </Provider>
     </HelmetProvider>
   </React.StrictMode>
 )

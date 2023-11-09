@@ -1,0 +1,7 @@
+Step 1: transform image to 16:9 (+ crop if necessary)
+https://aspectratiocalculator.com/16-9.html
+
+Step 2: Resize image
+Min height: 400px
+or
+Min width: 650px

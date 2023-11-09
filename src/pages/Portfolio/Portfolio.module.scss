@@ -3,6 +3,71 @@
 .container {
 }
 
-.content {
-  @include column-flex-center;
+.portfolio {
+  @include row-flex-center;
+
+  $item-margin: 30px;
+
+  &__items {
+    width: 100%;
+    @include row-flex-center;
+    flex-flow: row wrap;
+    &::after {
+      content: '';
+      margin: $item-margin;
+      width: 375px;
+    }
+  }
+  &__item {
+    margin: $item-margin;
+  }
+}
+
+// Large devices
+@media only screen and (min-width: 992px) and (max-width: 1100px) {
+  .portfolio {
+    $item-margin: 25px 15px;
+
+    &__items {
+      &::after {
+        margin: $item-margin;
+      }
+    }
+    &__item {
+      margin: $item-margin;
+    }
+  }
+}
+
+// Medium devices
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+  .portfolio {
+    $item-margin: 20px 15px;
+
+    &__items {
+      &::after {
+        margin: $item-margin;
+      }
+    }
+    &__item {
+      margin: $item-margin;
+    }
+  }
+}
+
+// Small devices
+@media only screen and (max-width: 568px) {
+  .portfolio {
+    $item-margin: 15px 0;
+
+    &__items {
+      &::after {
+        width: 0;
+        margin: 0;
+      }
+    }
+    &__item {
+      margin: $item-margin;
+    }
+  }
 }

@@ -1,0 +1,98 @@
+[
+  {
+    "id": "htmlcss",
+    "name": "HTML5/CSS3"
+  },
+  {
+    "id": "accessibility",
+    "name": "Accessibility"
+  },
+  {
+    "id": "sass",
+    "name": "Sass BEM"
+  },
+  {
+    "id": "bootstrap",
+    "name": "Bootstrap"
+  },
+  {
+    "id": "js",
+    "name": "JavaScript ES6"
+  },
+  {
+    "id": "react",
+    "name": "React"
+  },
+  {
+    "id": "reactrouter",
+    "name": "React Router"
+  },
+  {
+    "id": "recharts",
+    "name": "Recharts"
+  },
+  {
+    "id": "redux",
+    "name": "Redux"
+  },
+  {
+    "id": "vue",
+    "name": "Vue.js"
+  },
+  {
+    "id": "apirest",
+    "name": "API REST"
+  },
+  {
+    "id": "nodejs",
+    "name": "Node.js/Express"
+  },
+  {
+    "id": "express",
+    "name": "Express"
+  },
+  {
+    "id": "crud",
+    "name": "CRUD"
+  },
+  {
+    "id": "owasp",
+    "name": "OWASP"
+  },
+  {
+    "id": "mysql",
+    "name": "MySQL"
+  },
+  {
+    "id": "mongodb",
+    "name": "MongoDB"
+  },
+  {
+    "id": "git",
+    "name": "Git"
+  },
+  {
+    "id": "algorithm",
+    "name": "Algorithm"
+  },
+  {
+    "id": "seo",
+    "name": "SEO"
+  },
+  {
+    "id": "optimisation",
+    "name": "Optimisation"
+  },
+  {
+    "id": "unittests",
+    "name": "Unit tests"
+  },
+  {
+    "id": "integrationtests",
+    "name": "Integration tests"
+  },
+  {
+    "id": "e2etests",
+    "name": "E2E tests"
+  }
+]

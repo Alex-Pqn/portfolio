@@ -1,0 +1,131 @@
+[
+  {
+    "name": "HRNet",
+    "filename": "HRNet",
+    "type": "Application de gestion de dossiers",
+    "description": "Conversion d’une application interne de gestion de dossiers de jQuery vers React, puis création et intégration d'une nouvelle librairie React dans l’application.",
+
+    "organism": "OpenClassrooms",
+    "technologies": ["react", "redux", "sass", "git"],
+    "url": {
+      "site": "https://alex-pqn.github.io/HRNet-ocr_dcl/",
+      "github": "https://github.com/Alex-Pqn/HRNet-ocr_dcl"
+    }
+  },
+  {
+    "name": "Kasa",
+    "filename": "Kasa",
+    "type": "Plateforme de location d'appartements",
+    "description": "Création d'une plateforme de location d'appartements entre particuliers offrant la possibilité de parcourir les annonces de location et d'examiner en détail chaque offre.",
+    "organism": "OpenClassrooms",
+    "technologies": ["react", "reactrouter", "sass", "git"],
+    "url": {
+      "site": "https://alex-pqn.github.io/Kasa-ocr_dcl/",
+      "github": "https://github.com/Alex-Pqn/Kasa-ocr_dcl"
+    }
+  },
+  {
+    "name": "SportSee",
+    "filename": "SportSee",
+    "type": "Plateforme de coaching sportif",
+    "description": "Création de la page de profil utilisateur pour une startup de coaching sportif, permettant de suivre les sessions réalisées et les calories brûlées via des graphiques.",
+    "organism": "OpenClassrooms",
+    "technologies": ["react", "recharts", "sass", "git"],
+    "url": {
+      "site": "https://alex-pqn.github.io/SportSee-ocr_dcl/",
+      "github": "https://github.com/Alex-Pqn/SportSee-ocr_dcl"
+    }
+  },
+  {
+    "name": "Groupomania",
+    "filename": "Groupomania",
+    "type": "Réseau social interne d’entreprise",
+    "description": "Création d’un réseau social interne d’entreprise avec la possibilité de créer, modifier et supprimer son compte, poster du contenu textuel et multimédias, consulter les contenus d'autres utilisateurs, explorer les tendances, et modérer les contenus.",
+    "organism": "OpenClassrooms",
+    "technologies": ["vue", "sass", "express", "apirest", "mysql", "git"],
+    "url": {
+      "github": "https://github.com/Alex-Pqn/Groupomania-ocr_dw"
+    }
+  },
+  {
+    "name": "ArgentBank",
+    "filename": "ArgentBank",
+    "type": "Compte utilisateur bancaire",
+    "description": "Création d'une application web bancaire permettant aux utilisateurs de s'authentifier, d'accéder aux informations de leur profil, et de modifier leur nom et prénom. Puis rédaction de la documentation de l'API pour la phase de Transactions.",
+    "organism": "OpenClassrooms",
+    "technologies": ["react", "redux", "sass", "apirest", "apirest", "git"],
+    "url": {
+      "github": "https://github.com/Alex-Pqn/ArgentBank-ocr_dcl"
+    }
+  },
+  {
+    "name": "Billed",
+    "filename": "Billed",
+    "type": "Application de gestion de note de frais",
+    "description": "Ajout de tests unitaires et d'intégration à une application de gestion de notes de frais, en garantissant une couverture globale adéquate. De plus, correction des bugs identifiés et élaboration d'un plan de test End-to-End (E2E).",
+    "organism": "OpenClassrooms",
+    "technologies": ["js", "unittests", "integrationtests", "e2etests", "git"],
+    "url": {
+      "github": "https://github.com/Alex-Pqn/Billed-ocr_dcl"
+    }
+  },
+  {
+    "name": "Les petits plats",
+    "filename": "Les_petits_plats",
+    "type": "Site de recettes de cuisine",
+    "description": "Création de deux versions d'un algorithme de recherche : une première version utilisant les boucles natives JavaScript et la seconde en programmation fonctionnelle.",
+    "organism": "OpenClassrooms",
+    "technologies": ["htmlcss", "js", "algorithm", "git"],
+    "url": {
+      "site": "https://alex-pqn.github.io/Les-petits-plats-ocr_dcl/",
+      "github": "https://github.com/Alex-Pqn/Les-petits-plats-ocr_dcl"
+    }
+  },
+  {
+    "name": "FishEye",
+    "filename": "FishEye",
+    "type": "Site de photographes indépendants",
+    "description": "Création d'un site web offrant la possibilité de parcourir, liker et trier les œuvres de photographes indépendants, en mettant l'accent sur l'accessibilité. Ceci implique le passage du site au test AChecker, ainsi que l'utilisation d'un lecteur d'écran.",
+    "organism": "OpenClassrooms",
+    "technologies": ["htmlcss", "js", "accessibility", "git"],
+    "url": {
+      "site": "https://alex-pqn.github.io/FishEye-ocr_dcl/",
+      "github": "https://github.com/Alex-Pqn/FishEye-ocr_dcl"
+    }
+  },
+  {
+    "name": "Booki",
+    "filename": "Booki",
+    "type": "Site d'hébergements et d'activités",
+    "description": "Création du prototype d'un site web permettant aux usagers de trouver des hébergements et des activités dans la ville de leur choix.",
+    "organism": "OpenClassrooms",
+    "technologies": ["htmlcss", "js", "git"],
+    "url": {
+      "site": "https://alex-pqn.github.io/Booki-ocr_dw/",
+      "github": "https://github.com/Alex-Pqn/Booki-ocr_dw"
+    }
+  },
+  {
+    "name": "La chouette agence",
+    "filename": "La_chouette_agence",
+    "type": "Site d'entreprise de design",
+    "description": "Analyse de l'état actuel du SEO et mise en place d'au moins 10 recommandations, assurant ainsi la réduction du temps de chargement des pages et un meilleur référencement dans les moteurs de recherche.",
+    "organism": "OpenClassrooms",
+    "technologies": ["htmlcss", "seo", "accessibility", "optimisation", "git"],
+    "url": {
+      "site": "https://alex-pqn.github.io/La-Chouette-Agence-ocr_dw/",
+      "github": "https://github.com/Alex-Pqn/La-Chouette-Agence-ocr_dw"
+    }
+  },
+  {
+    "name": "HotTakes",
+    "filename": "HotTakes",
+    "type": "Site de sauces piquantes",
+    "description": "Création d'une API REST pour le site web HotTakes, permettant aux utilisateurs de se créer un compte, de s'authentifier, de parcourir les sauces disponibles, et d'ajouter, modifier ou supprimer leurs propres sauces.",
+    "organism": "OpenClassrooms",
+    "technologies": ["apirest", "express", "crud", "owasp", "mongodb", "git"],
+    "url": {
+      "github": "https://github.com/Alex-Pqn/HotTakes-ocr_dw"
+    }
+  }
+]

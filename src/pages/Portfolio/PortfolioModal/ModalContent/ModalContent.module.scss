@@ -1,0 +1,229 @@
+@import '@/styles/mixins.scss';
+@import '@/styles/variables.scss';
+
+// ModalContent
+.modalContent {
+  @include row-flex-center;
+  width: 700px;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  * {
+    color: black !important;
+  }
+
+  hr {
+    width: 7%;
+    height: 3px;
+    border: none;
+    background-color: $app-color;
+  }
+
+  // Content
+  &__content {
+    @include column-flex-center;
+    border-radius: 0.3em;
+    padding: 1.3em 1.5em;
+    background: white;
+  }
+
+  // Chevron
+  &__chevron {
+    @include transparent-button;
+    cursor: pointer;
+    padding: 0 5px;
+
+    svg {
+      background-color: rgba(0, 0, 0, 0.3);
+      border-radius: 1em;
+      padding: 40px 0px;
+      fill: rgba(255, 255, 255, 0.6);
+    }
+
+    &:hover svg {
+      background-color: rgba(0, 0, 0, 0.45);
+      fill: rgba(255, 255, 255, 0.9);
+    }
+  }
+
+  // Header
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  &__header-name {
+    font-size: 1.3em;
+  }
+  &__header-closeButton {
+    @include transparent-button;
+    transition: all ease-in-out 0.1s;
+    font-size: 2em;
+    cursor: pointer;
+    &:hover {
+      color: rgb(163, 0, 0) !important;
+    }
+  }
+
+  // Image
+  &__image {
+    @include row-flex-center;
+    padding: 10px 0 20px 0;
+    a {
+      border: 1px solid rgba(129, 129, 129, 0.2);
+      padding: 20px;
+      border-radius: 0.75em;
+      img {
+        width: 100%;
+        max-height: 400px;
+        max-width: 650px;
+        object-fit: cover;
+      }
+    }
+  }
+
+  // Infos
+  &__infos {
+    @include column-flex-center;
+    width: 87%;
+  }
+  &__infos-description {
+    text-align: center;
+    line-height: 25px;
+  }
+  &__infos-technologies {
+    @include row-flex-center;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    font-style: italic;
+
+    span {
+      margin: 0 5px;
+    }
+  }
+
+  // Footer
+  &__footer {
+    @include row-flex-center;
+    padding-top: 15px;
+    width: 100%;
+    a {
+      display: flex;
+      align-items: center;
+      font-size: 1.1em;
+      &:hover {
+        opacity: 0.85;
+      }
+    }
+  }
+  &__footer-github {
+    display: flex;
+    width: 100%;
+  }
+  &__footer-site {
+    display: flex;
+    justify-content: flex-end;
+    width: 50%;
+    a svg {
+      margin-left: 7px;
+    }
+  }
+}
+
+// Small devices
+@media only screen and (min-width: 568px) and (max-width: 768px) {
+  .modalContent {
+    width: 520px;
+    &__infos {
+      width: 93%;
+    }
+  }
+}
+
+// Small devices
+@media only screen and (max-width: 568px) {
+  .modalContent {
+    width: 95%;
+
+    hr {
+      width: 13%;
+      height: 2px;
+      margin: 0;
+    }
+
+    &__content {
+      padding: 0.9em 1em;
+    }
+    &__header-name {
+      font-size: 1.1em;
+    }
+    &__image {
+      padding-bottom: 20px;
+      a {
+        padding: 10px;
+      }
+    }
+    &__infos {
+      width: 100%;
+    }
+    &__infos-description {
+      line-height: 20px;
+      font-size: 0.95em;
+    }
+    &__infos-technologies {
+      flex-wrap: wrap;
+      line-height: 23px;
+      li {
+        font-size: 0.95em;
+      }
+    }
+  }
+}
+// Small devices
+@media only screen and (max-width: 320px) {
+  .modalContent {
+    &__image {
+      padding-bottom: 20px;
+      a {
+        padding: 10px;
+        img {
+          max-height: 185px;
+          max-width: 185px;
+        }
+      }
+    }
+  }
+}
+
+@mixin modalNextAnimation {
+  @keyframes animation {
+    from {
+      left: 50%;
+      opacity: 1;
+    }
+    48% {
+      left: 40%;
+      opacity: 0;
+    }
+    52% {
+      left: 60%;
+      opacity: 0;
+    }
+    to {
+      left: 50%;
+      opacity: 1;
+    }
+  }
+  animation: 800ms animation;
+}
+
+.modalNextAnimation {
+  @include modalNextAnimation;
+}
+.modalPrevAnimation {
+  @include modalNextAnimation;
+  animation-direction: reverse;
+}

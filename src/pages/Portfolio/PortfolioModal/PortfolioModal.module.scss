@@ -9,243 +9,18 @@
   left: 0;
   z-index: 999;
 
-  * {
-    color: black !important;
-  }
-
-  hr {
-    width: 7%;
-    height: 3px;
-    border: none;
-    background-color: $app-color;
-  }
-
-  // Container
-  &__container {
-    @include row-flex-center;
-    width: 700px;
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-
-  // Content
   &__content {
-    @include column-flex-center;
-    border-radius: 0.3em;
-    padding: 1.3em 1.5em;
-    background: white;
-  }
-
-  // Chevron
-  &__chevron {
-    @include transparent-button;
-    cursor: pointer;
-    padding: 0 5px;
-
-    svg {
-      background-color: rgba(0, 0, 0, 0.3);
-      border-radius: 1em;
-      padding: 40px 0px;
-      fill: rgba(255, 255, 255, 0.6);
-    }
-
-    &:hover svg {
-      background-color: rgba(0, 0, 0, 0.45);
-      fill: rgba(255, 255, 255, 0.9);
-    }
-  }
-
-  // Header
-  &__header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    position: absolute;
     width: 100%;
   }
-  &__header-name {
-    font-size: 1.3em;
-  }
-  &__header-closeButton {
-    @include transparent-button;
-    transition: all ease-in-out 0.1s;
-    font-size: 2em;
-    cursor: pointer;
-    &:hover {
-      color: rgb(163, 0, 0) !important;
-    }
-  }
-
-  // Image
-  &__image {
-    @include row-flex-center;
-    padding: 10px 0 20px 0;
-    a {
-      border: 1px solid rgba(129, 129, 129, 0.2);
-      padding: 20px;
-      border-radius: 0.75em;
-      img {
-        width: 100%;
-        max-height: 400px;
-        max-width: 650px;
-        object-fit: cover;
-      }
-    }
-  }
-
-  // Infos
-  &__infos {
-    @include column-flex-center;
-    width: 87%;
-  }
-  &__infos-description {
-    text-align: center;
-    line-height: 25px;
-  }
-  &__infos-technologies {
-    @include row-flex-center;
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    font-style: italic;
-
-    span {
-      margin: 0 5px;
-    }
-  }
-
-  // Footer
-  &__footer {
-    @include row-flex-center;
-    padding-top: 15px;
-    width: 100%;
-    a {
-      display: flex;
-      align-items: center;
-      font-size: 1.1em;
-      &:hover {
-        opacity: 0.85;
-      }
-    }
-  }
-  &__footer-github {
-    width: 100%;
-  }
-  &__footer-site {
-    width: 50%;
-    a {
-      justify-content: flex-end;
-      svg {
-        margin-left: 7px;
-      }
-    }
-  }
-}
-
-// Small devices
-@media only screen and (min-width: 568px) and (max-width: 768px) {
-  .portfolioModal {
-    &__container {
-      width: 520px;
-    }
-    &__infos {
-      width: 93%;
-    }
-  }
-}
-
-// Small devices
-@media only screen and (max-width: 568px) {
-  .portfolioModal {
-    hr {
-      width: 13%;
-      height: 2px;
-      margin: 0;
-    }
-
-    &__container {
-      width: 95%;
-    }
-    &__content {
-      padding: 0.9em 1em;
-    }
-    &__header-name {
-      font-size: 1.1em;
-    }
-    &__image {
-      padding-bottom: 20px;
-      a {
-        padding: 10px;
-      }
-    }
-    &__infos {
-      width: 100%;
-    }
-    &__infos-description {
-      line-height: 20px;
-      font-size: 0.95em;
-    }
-    &__infos-technologies {
-      flex-wrap: wrap;
-      line-height: 23px;
-      li {
-        font-size: 0.95em;
-      }
-    }
-  }
-}
-// Small devices
-@media only screen and (max-width: 320px) {
-  .portfolioModal {
-    &__image {
-      padding-bottom: 20px;
-      a {
-        padding: 10px;
-        img {
-          max-height: 185px;
-          max-width: 185px;
-        }
-      }
-    }
-  }
-}
-
-@mixin modalNextAnimation {
-  @keyframes animation {
-    from {
-      left: 50%;
-      opacity: 1;
-    }
-    45% {
-      left: 40%;
-      opacity: 0;
-    }
-    55% {
-      left: 60%;
-      opacity: 0;
-    }
-    to {
-      left: 50%;
-      opacity: 1;
-    }
-  }
-  animation: 1s animation;
-}
-
-.modalNextAnimation {
-  @include modalNextAnimation;
-}
-.modalPrevAnimation {
-  @include modalNextAnimation;
-  animation-direction: reverse;
 }
 
 .modalOpenTransition {
-  @mixin default-modal-container {
+  @mixin default-modal-content {
     top: -10%;
     opacity: 0;
   }
-  @mixin in-modal-container {
+  @mixin in-modal-content {
     top: 45%;
     opacity: 1;
 
@@ -258,7 +33,7 @@
       top: 50%;
     }
   }
-  @mixin out-modal-container {
+  @mixin out-modal-content {
     top: -30%;
     opacity: 0;
   }
@@ -272,40 +47,40 @@
     background: transparent;
   }
 
-  $transition-modal-container: all 0.5s ease-in-out;
+  $transition-modal-content: all 0.5s ease-in-out;
   $transition-modal: all 0.5s ease-in-out;
 
   @include default-modal;
 
-  .portfolioModal__container {
-    @include default-modal-container;
+  .portfolioModal__content {
+    @include default-modal-content;
   }
   &--appearActive {
     transition: $transition-modal;
     @include in-modal;
-    .portfolioModal__container {
-      transition: $transition-modal-container;
-      @include in-modal-container;
+    .portfolioModal__content {
+      transition: $transition-modal-content;
+      @include in-modal-content;
     }
   }
   &--appearDone {
     @include in-modal;
-    .portfolioModal__container {
-      @include in-modal-container;
+    .portfolioModal__content {
+      @include in-modal-content;
     }
   }
   &--exit {
     @include in-modal;
-    .portfolioModal__container {
-      @include in-modal-container;
+    .portfolioModal__content {
+      @include in-modal-content;
     }
   }
   &--exitActive {
     transition: $transition-modal;
     @include out-modal;
-    .portfolioModal__container {
-      transition: $transition-modal-container;
-      @include out-modal-container;
+    .portfolioModal__content {
+      transition: $transition-modal-content;
+      @include out-modal-content;
     }
   }
 }

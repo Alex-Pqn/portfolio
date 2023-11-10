@@ -1,14 +1,9 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { Link } from 'react-router-dom'
 import { CSSTransition } from 'react-transition-group'
 import styles from './PortfolioModal.module.scss'
 import { Project } from '@/@types/Project'
 import usePortfolioImage from '@/hooks/usePortfolioImage'
-import IconGithub from '@/components/Icon/IconGithub/IconGithub'
-import IconArrowUpRight from '@/components/Icon/IconArrowUpRight/IconArrowUpRight'
-import IconChevronCompactLeft from '@/components/Icon/IconChevronCompactRight/IconChevronCompactLeft'
-import IconChevronCompactRight from '@/components/Icon/IconChevronCompactLeft/IconChevronCompactRight'
-import { useSwipeable } from 'react-swipeable'
+import ModalContent from './ModalContent/ModalContent'
 
 interface Props {
   project: Project
@@ -24,87 +19,94 @@ function PortfolioModal({
   triggerPrevProject,
 }: Props) {
   const { loading, image } = usePortfolioImage({ filename: project.filename })
-  const [isModalOpen, setIsModalShown] = useState(true)
+  const [isModalOpen, setIsModalOpen] = useState(true)
   const transitionRef = useRef(null)
 
-  const isMobileDisplay = document.documentElement.clientWidth <= 768
-
+  const modalNextAnimationDuration = 800
   const [isModalNextAnimationPlaying, setIsModalNextAnimationPlaying] =
     useState(false)
   const [isModalPrevAnimationPlaying, setIsModalPrevAnimationPlaying] =
     useState(false)
-  const modalNextAnimationDuration = 1000
 
+  // Close Modal
   const closeModal = useCallback(() => {
-    if (!isModalNextAnimationPlaying && !isModalPrevAnimationPlaying) {
-      setIsModalShown(false)
-    }
+    if (!isModalNextAnimationPlaying && !isModalPrevAnimationPlaying)
+      setIsModalOpen(false)
   }, [isModalNextAnimationPlaying, isModalPrevAnimationPlaying])
 
+  // Handle Next Project
   const handleNextProject = useCallback(() => {
-    setIsModalNextAnimationPlaying(true)
+    if (!isModalNextAnimationPlaying) {
+      setIsModalNextAnimationPlaying(true)
 
-    setTimeout(
-      () => triggerNextProject(project.id),
-      modalNextAnimationDuration / 2
-    )
-    setTimeout(
-      () => setIsModalNextAnimationPlaying(false),
-      modalNextAnimationDuration
-    )
-  }, [project.id, triggerNextProject])
+      setTimeout(
+        () => triggerNextProject(project.id),
+        modalNextAnimationDuration / 2
+      )
+      setTimeout(
+        () => setIsModalNextAnimationPlaying(false),
+        modalNextAnimationDuration
+      )
+    }
+  }, [isModalNextAnimationPlaying, project.id, triggerNextProject])
 
+  // Handle Prev Project
   const handlePrevProject = useCallback(() => {
-    setIsModalPrevAnimationPlaying(true)
+    if (!isModalPrevAnimationPlaying) {
+      setIsModalPrevAnimationPlaying(true)
 
-    setTimeout(
-      () => triggerPrevProject(project.id),
-      modalNextAnimationDuration / 2
-    )
-    setTimeout(
-      () => setIsModalPrevAnimationPlaying(false),
-      modalNextAnimationDuration
-    )
-  }, [project.id, triggerPrevProject])
+      setTimeout(
+        () => triggerPrevProject(project.id),
+        modalNextAnimationDuration / 2
+      )
+      setTimeout(
+        () => setIsModalPrevAnimationPlaying(false),
+        modalNextAnimationDuration
+      )
+    }
+  }, [isModalPrevAnimationPlaying, project.id, triggerPrevProject])
 
-  const mobileSwipeHandler = useSwipeable({
-    onSwipedRight: () => handlePrevProject(),
-    onSwipedLeft: () => handleNextProject(),
-    swipeDuration: 500,
-    preventScrollOnSwipe: true,
-  })
+  // On Keydown Event
+  const onKeydownEvent = useCallback(
+    (e: KeyboardEvent) => {
+      if (e.key === 'Escape') closeModal()
+      if (e.key === 'ArrowRight') handleNextProject()
+      if (e.key === 'ArrowLeft') handlePrevProject()
+    },
+    [closeModal, handleNextProject, handlePrevProject]
+  )
+
+  // On Popstate Event
+  const onPopstateEvent = useCallback(
+    (e: PopStateEvent) => {
+      if (e.state == 'backPressed') closeModal()
+    },
+    [closeModal]
+  )
+
+  // Background Scroll Handler
+  const backgroundScrollHandler = () =>
+    (document.body.style.overflow =
+      document.body.style.overflow === 'hidden' ? 'auto' : 'hidden')
 
   useEffect(() => {
-    const backgroundScrollHandler = () =>
-      (document.body.style.overflow =
-        document.body.style.overflow === 'hidden' ? 'auto' : 'hidden')
-
-    const closeOnEscapeHandler = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') closeModal()
-    }
-
-    function mobileBackPressedHandler(e: PopStateEvent) {
-      if (e.state == 'backPressed') {
-        closeModal()
-      }
-
-      window.history.pushState('backPressed', '', null)
-      window.history.pushState('dummy', '', null)
-    }
-
+    window.addEventListener('keydown', onKeydownEvent)
+    window.addEventListener('popstate', onPopstateEvent)
+    window.history.pushState('backPressed', '', null)
+    window.history.pushState('dummy', '', null)
     backgroundScrollHandler()
-    window.addEventListener('keydown', closeOnEscapeHandler)
-    window.addEventListener('popstate', mobileBackPressedHandler)
+
     return () => {
+      window.removeEventListener('keydown', onKeydownEvent)
+      window.removeEventListener('popstate', onPopstateEvent)
       backgroundScrollHandler()
-      window.removeEventListener('keydown', closeOnEscapeHandler)
-      window.removeEventListener('popstate', mobileBackPressedHandler)
     }
-  }, [closeModal, handleNextProject, handlePrevProject])
+  }, [closeModal, onKeydownEvent, onPopstateEvent])
 
   return (
     <>
       {!loading && image && (
+        // Portfolio Open Transition
         <CSSTransition
           in={isModalOpen}
           nodeRef={transitionRef}
@@ -124,107 +126,17 @@ function PortfolioModal({
             onClick={closeModal}
             className={`${styles.portfolioModal} ${styles.modalOpenTransition}`}
           >
-            {/* Container */}
-            <div
-              {...mobileSwipeHandler}
-              aria-modal="true"
-              className={`${styles.portfolioModal__container} ${
-                isModalNextAnimationPlaying && styles.modalNextAnimation
-              } ${isModalPrevAnimationPlaying && styles.modalPrevAnimation}`}
-            >
-              {/* Chevron */}
-              {!isMobileDisplay && (
-                <button
-                  type="button"
-                  onClick={(e) => {
-                    e.stopPropagation()
-                    handlePrevProject()
-                  }}
-                  className={styles.portfolioModal__chevron}
-                >
-                  <IconChevronCompactLeft size="35px" />
-                </button>
-              )}
-
-              {/* Content */}
-              <div
-                onClick={(e) => e.stopPropagation()}
-                tabIndex={0}
-                ref={(div) => div && div.focus()}
-                className={styles.portfolioModal__content}
-              >
-                {/* Header */}
-                <header className={styles.portfolioModal__header}>
-                  <h3 className={styles['portfolioModal__header-name']}>
-                    {project.name}
-                  </h3>
-                  <button
-                    className={styles['portfolioModal__header-closeButton']}
-                    onClick={closeModal}
-                  >
-                    &times;
-                  </button>
-                </header>
-                {/* Image */}
-                <section className={styles.portfolioModal__image}>
-                  <Link
-                    to={project.url.site || project.url.github}
-                    target="_blank"
-                  >
-                    <img src={image} alt={project.name} />
-                  </Link>
-                </section>
-                <hr />
-                {/* Infos */}
-                <section className={styles.portfolioModal__infos}>
-                  <p className={styles['portfolioModal__infos-description']}>
-                    {project.description}
-                  </p>
-                  <ul className={styles['portfolioModal__infos-technologies']}>
-                    {project.technologies.map((technology, index) => (
-                      <li key={index}>
-                        {technology}
-                        {project.technologies.length !== ++index && (
-                          <span>-</span>
-                        )}
-                      </li>
-                    ))}
-                  </ul>
-                </section>
-                {/* Footer */}
-                <footer className={styles.portfolioModal__footer}>
-                  <div className={styles['portfolioModal__footer-github']}>
-                    <Link
-                      className={styles['portfolioModal__footer-github']}
-                      to={project.url.github}
-                      target="_blank"
-                    >
-                      <IconGithub size="23px" />
-                    </Link>
-                  </div>
-                  {project.url.site && (
-                    <div className={styles['portfolioModal__footer-site']}>
-                      <Link to={project.url.site} target="_blank">
-                        Visiter <IconArrowUpRight />
-                      </Link>
-                    </div>
-                  )}
-                </footer>
-              </div>
-
-              {/* Chevron */}
-              {!isMobileDisplay && (
-                <button
-                  type="button"
-                  onClick={(e) => {
-                    e.stopPropagation()
-                    handleNextProject()
-                  }}
-                  className={styles.portfolioModal__chevron}
-                >
-                  <IconChevronCompactRight size="35px" />
-                </button>
-              )}
+            {/* PortfolioModal Content */}
+            <div className={styles.portfolioModal__content}>
+              <ModalContent
+                project={project}
+                projectImage={image}
+                handleNextProject={handleNextProject}
+                handlePrevProject={handlePrevProject}
+                isModalNextAnimationPlaying={isModalNextAnimationPlaying}
+                isModalPrevAnimationPlaying={isModalPrevAnimationPlaying}
+                closeModal={closeModal}
+              />
             </div>
           </div>
         </CSSTransition>

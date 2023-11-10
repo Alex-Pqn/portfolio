@@ -17,14 +17,14 @@ function Portfolio() {
   const projects = useAppSelector((state) => state.project.projects)
 
   function handleNextProject(projectId: number) {
-    const nextProject = projects[++projectId]
+    const nextProject = projects[projectId + 1]
     const firstProject = projects[0]
 
     setModal({ isOpen: true, project: nextProject || firstProject })
   }
 
   function handlePrevProject(projectId: number) {
-    const prevProject = projects[--projectId]
+    const prevProject = projects[projectId - 1]
     const lastProject = projects[projects.length - 1]
 
     setModal({ isOpen: true, project: prevProject || lastProject })
@@ -73,8 +73,8 @@ function Portfolio() {
               triggerCloseModal={() =>
                 setModal({ isOpen: false, project: null })
               }
-              triggerNextProject={(projectId) => handleNextProject(projectId)}
-              triggerPrevProject={(projectId) => handlePrevProject(projectId)}
+              triggerNextProject={handleNextProject}
+              triggerPrevProject={handlePrevProject}
             />
           )}
         </section>

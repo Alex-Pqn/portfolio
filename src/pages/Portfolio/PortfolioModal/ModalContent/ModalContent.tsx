@@ -32,6 +32,7 @@ function ModalContent({
   const mobileSwipeHandler = useSwipeable({
     onSwipedRight: () => handlePrevProject(),
     onSwipedLeft: () => handleNextProject(),
+    onSwipedUp: () => closeModal(),
     swipeDuration: 500,
     preventScrollOnSwipe: true,
   })

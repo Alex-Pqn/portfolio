@@ -1,9 +1,12 @@
-@import '@/styles/variables.scss';
+@import '@/styles/mixins.scss';
 
 .error-fallback {
   pre {
     background-color: rgba(221, 62, 62, 0.75);
     padding: 15px 20px;
     border-radius: 0.3em;
+  }
+  button {
+    @include button;
   }
 }

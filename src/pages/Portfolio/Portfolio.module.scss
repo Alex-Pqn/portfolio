@@ -8,7 +8,7 @@
 
   $item-margin: 30px;
 
-  &__items {
+  &__cards {
     width: 100%;
     @include row-flex-center;
     flex-flow: row wrap;
@@ -18,7 +18,7 @@
       width: 375px;
     }
   }
-  &__item {
+  &__card {
     margin: $item-margin;
   }
 }
@@ -28,12 +28,12 @@
   .portfolio {
     $item-margin: 25px 15px;
 
-    &__items {
+    &__cards {
       &::after {
         margin: $item-margin;
       }
     }
-    &__item {
+    &__card {
       margin: $item-margin;
     }
   }
@@ -44,12 +44,12 @@
   .portfolio {
     $item-margin: 20px 15px;
 
-    &__items {
+    &__cards {
       &::after {
         margin: $item-margin;
       }
     }
-    &__item {
+    &__card {
       margin: $item-margin;
     }
   }
@@ -60,13 +60,13 @@
   .portfolio {
     $item-margin: 15px 0;
 
-    &__items {
+    &__cards {
       &::after {
         width: 0;
         margin: 0;
       }
     }
-    &__item {
+    &__card {
       margin: $item-margin;
     }
   }

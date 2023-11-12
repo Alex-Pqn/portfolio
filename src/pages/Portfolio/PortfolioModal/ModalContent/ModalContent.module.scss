@@ -114,9 +114,6 @@
       display: flex;
       align-items: center;
       font-size: 1.1em;
-      &:hover {
-        opacity: 0.85;
-      }
     }
   }
   &__footer-github {
@@ -129,6 +126,15 @@
     width: 50%;
     a svg {
       margin-left: 7px;
+    }
+  }
+}
+
+// Small devices
+@media only screen and (max-height: 768px) {
+  .modalContent {
+    &__image a img {
+      max-height: 200px;
     }
   }
 }

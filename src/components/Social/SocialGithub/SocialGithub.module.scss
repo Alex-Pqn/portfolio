@@ -3,9 +3,5 @@
 .social-github {
   a {
     @include row-flex-center;
-
-    &:hover {
-      opacity: 0.9;
-    }
   }
 }

@@ -7,8 +7,13 @@ function DefaultHeader() {
   const [lastScrollPosition, setLastScrollPosition] = useState(0)
   const [headerScrollTriggerPosition] = useState(25)
 
-  addEventListener('scroll', () => setLastScrollPosition(window.scrollY))
+  useState(() => {
+    addEventListener('scroll', () => setLastScrollPosition(window.scrollY))
 
+    return () => {
+      removeEventListener('scroll', () => setLastScrollPosition(window.scrollY))
+    }
+  })
   return (
     <header
       className={`${styles.header} ${

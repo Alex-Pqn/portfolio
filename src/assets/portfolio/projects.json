@@ -1,15 +1,14 @@
 [
   {
-    "name": "HRNet",
-    "filename": "HRNet",
-    "type": "Application de gestion de dossiers",
-    "description": "Conversion d’une application interne de gestion de dossiers de jQuery vers React, puis création et intégration d'une nouvelle librairie React dans l’application.",
-
+    "name": "SportSee",
+    "filename": "SportSee",
+    "type": "Plateforme de coaching sportif",
+    "description": "Création de la page de profil utilisateur pour une startup de coaching sportif, permettant de suivre les sessions réalisées et les calories brûlées via des graphiques.",
     "organism": "OpenClassrooms",
-    "technologies": ["react", "redux", "sass", "git"],
+    "technologies": ["react", "recharts", "sass", "git"],
     "url": {
-      "site": "https://alex-pqn.github.io/HRNet-ocr_dcl/",
-      "github": "https://github.com/Alex-Pqn/HRNet-ocr_dcl"
+      "site": "https://alex-pqn.github.io/SportSee-ocr_dcl/",
+      "github": "https://github.com/Alex-Pqn/SportSee-ocr_dcl"
     }
   },
   {
@@ -25,26 +24,15 @@
     }
   },
   {
-    "name": "SportSee",
-    "filename": "SportSee",
-    "type": "Plateforme de coaching sportif",
-    "description": "Création de la page de profil utilisateur pour une startup de coaching sportif, permettant de suivre les sessions réalisées et les calories brûlées via des graphiques.",
-    "organism": "OpenClassrooms",
-    "technologies": ["react", "recharts", "sass", "git"],
+    "name": "alexandrepaquien.com",
+    "filename": "Portfolio",
+    "type": "Portfolio",
+    "description": "Création de mon portfolio, permettant de regrouper mes projets réalisés, mon CV et mes informations de contact.",
+    "organism": "Personnel",
+    "technologies": ["react", "redux", "sass", "ts", "git"],
     "url": {
-      "site": "https://alex-pqn.github.io/SportSee-ocr_dcl/",
-      "github": "https://github.com/Alex-Pqn/SportSee-ocr_dcl"
-    }
-  },
-  {
-    "name": "Groupomania",
-    "filename": "Groupomania",
-    "type": "Réseau social interne d’entreprise",
-    "description": "Création d’un réseau social interne d’entreprise avec la possibilité de créer, modifier et supprimer son compte, poster du contenu textuel et multimédias, consulter les contenus d'autres utilisateurs, explorer les tendances, et modérer les contenus.",
-    "organism": "OpenClassrooms",
-    "technologies": ["vue", "sass", "express", "apirest", "mysql", "git"],
-    "url": {
-      "github": "https://github.com/Alex-Pqn/Groupomania-ocr_dw"
+      "site": "https://alexandrepaquien.com/",
+      "github": "https://github.com/Alex-Pqn/portfolio"
     }
   },
   {
@@ -53,9 +41,44 @@
     "type": "Compte utilisateur bancaire",
     "description": "Création d'une application web bancaire permettant aux utilisateurs de s'authentifier, d'accéder aux informations de leur profil, et de modifier leur nom et prénom. Puis rédaction de la documentation de l'API pour la phase de Transactions.",
     "organism": "OpenClassrooms",
-    "technologies": ["react", "redux", "sass", "apirest", "apirest", "git"],
+    "technologies": ["react", "redux", "sass", "apirest", "git"],
     "url": {
       "github": "https://github.com/Alex-Pqn/ArgentBank-ocr_dcl"
+    }
+  },
+  {
+    "name": "Groupomania",
+    "filename": "Groupomania",
+    "type": "Réseau social interne d’entreprise",
+    "description": "Création d’un réseau social interne d’entreprise avec la possibilité de créer, modifier et supprimer son compte, poster du contenu textuel et multimédias, consulter les contenus d'autres utilisateurs, explorer les tendances, et modérer les contenus.",
+    "organism": "OpenClassrooms",
+    "technologies": ["vue", "express", "apirest", "mysql", "git"],
+    "url": {
+      "github": "https://github.com/Alex-Pqn/Groupomania-ocr_dw"
+    }
+  },
+  {
+    "name": "HotTakes",
+    "filename": "HotTakes",
+    "type": "Site de sauces piquantes",
+    "description": "Création d'une API REST pour le site web HotTakes, permettant aux utilisateurs de se créer un compte, de s'authentifier, de parcourir les sauces disponibles, et d'ajouter, modifier ou supprimer leurs propres sauces.",
+    "organism": "OpenClassrooms",
+    "technologies": ["apirest", "express", "crud", "owasp", "mongodb", "git"],
+    "url": {
+      "github": "https://github.com/Alex-Pqn/HotTakes-ocr_dw"
+    }
+  },
+  {
+    "name": "HRNet",
+    "filename": "HRNet",
+    "type": "Application de gestion de dossiers",
+    "description": "Conversion d’une application interne de gestion de dossiers de jQuery vers React, puis création et intégration d'une nouvelle librairie React dans l’application.",
+
+    "organism": "OpenClassrooms",
+    "technologies": ["react", "redux", "sass", "git"],
+    "url": {
+      "site": "https://alex-pqn.github.io/HRNet-ocr_dcl/",
+      "github": "https://github.com/Alex-Pqn/HRNet-ocr_dcl"
     }
   },
   {
@@ -115,17 +138,6 @@
     "url": {
       "site": "https://alex-pqn.github.io/La-Chouette-Agence-ocr_dw/",
       "github": "https://github.com/Alex-Pqn/La-Chouette-Agence-ocr_dw"
-    }
-  },
-  {
-    "name": "HotTakes",
-    "filename": "HotTakes",
-    "type": "Site de sauces piquantes",
-    "description": "Création d'une API REST pour le site web HotTakes, permettant aux utilisateurs de se créer un compte, de s'authentifier, de parcourir les sauces disponibles, et d'ajouter, modifier ou supprimer leurs propres sauces.",
-    "organism": "OpenClassrooms",
-    "technologies": ["apirest", "express", "crud", "owasp", "mongodb", "git"],
-    "url": {
-      "github": "https://github.com/Alex-Pqn/HotTakes-ocr_dw"
     }
   }
 ]

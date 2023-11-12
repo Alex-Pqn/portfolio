@@ -9,7 +9,7 @@
   },
   {
     "id": "sass",
-    "name": "Sass BEM"
+    "name": "Sass (BEM)"
   },
   {
     "id": "bootstrap",
@@ -38,6 +38,10 @@
   {
     "id": "vue",
     "name": "Vue.js"
+  },
+  {
+    "id": "ts",
+    "name": "TypeScript"
   },
   {
     "id": "apirest",

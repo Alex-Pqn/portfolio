@@ -1,15 +1,43 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
-import { CSSTransition } from 'react-transition-group'
+import { useCallback, useEffect, useState } from 'react'
 import styles from './PortfolioModal.module.scss'
 import { Project } from '@/@types/Project'
 import usePortfolioImage from '@/hooks/usePortfolioImage'
 import ModalContent from './ModalContent/ModalContent'
-
+import { motion as m } from 'framer-motion'
 interface Props {
   project: Project
   triggerCloseModal: () => void
   triggerNextProject: (arg0: number) => void
   triggerPrevProject: (arg0: number) => void
+}
+
+const modalAnimation = {
+  hidden: { backgroundColor: 'transparent' },
+  visible: {
+    background: 'rgba(0, 0, 0, 0.3)',
+    transition: {
+      duration: 1,
+    },
+  },
+  exit: { backgroundColor: 'transparent' },
+}
+
+const modalContentAnimation = {
+  hidden: { y: -100, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.4,
+    },
+  },
+  exit: {
+    y: -100,
+    opacity: 0,
+    transition: {
+      duration: 0.4,
+    },
+  },
 }
 
 function PortfolioModal({
@@ -19,9 +47,6 @@ function PortfolioModal({
   triggerPrevProject,
 }: Props) {
   const { loading, image } = usePortfolioImage({ filename: project.filename })
-
-  const [isModalOpen, setIsModalOpen] = useState(true)
-  const transitionRef = useRef(null)
 
   const modalNextAnimationDuration = 800
   const [isModalNextAnimationPlaying, setIsModalNextAnimationPlaying] =
@@ -33,8 +58,8 @@ function PortfolioModal({
 
   // Close Modal
   const closeModal = useCallback(() => {
-    if (!isAnimationPlaying) setIsModalOpen(false)
-  }, [isAnimationPlaying])
+    if (!isAnimationPlaying) triggerCloseModal()
+  }, [isAnimationPlaying, triggerCloseModal])
 
   // Handle Next Project
   const handleNextProject = useCallback(() => {
@@ -110,40 +135,34 @@ function PortfolioModal({
   if (loading || !image) return null
   else
     return (
-      // Open Transition
-      <CSSTransition
-        in={isModalOpen}
-        nodeRef={transitionRef}
-        timeout={500}
-        classNames={{
-          appearActive: styles['modalOpenTransition--appearActive'],
-          appearDone: styles['modalOpenTransition--appearDone'],
-          exit: styles['modalOpenTransition--exit'],
-          exitActive: styles['modalOpenTransition--exitActive'],
-        }}
-        onExited={triggerCloseModal}
-        appear
+      // PortfolioModal
+      <m.div
+        onClick={closeModal}
+        className={styles.portfolioModal}
+        initial="hidden"
+        animate="visible"
+        exit="exit"
+        variants={modalAnimation}
       >
-        {/* PortfolioModal */}
-        <div
-          ref={transitionRef}
-          onClick={closeModal}
-          className={`${styles.portfolioModal} ${styles.modalOpenTransition}`}
+        {/* Content */}
+        <m.div
+          className={styles.portfolioModal__content}
+          initial="hidden"
+          animate="visible"
+          exit="exit"
+          variants={modalContentAnimation}
         >
-          {/* Content */}
-          <div className={styles.portfolioModal__content}>
-            <ModalContent
-              project={project}
-              projectImage={image}
-              handleNextProject={handleNextProject}
-              handlePrevProject={handlePrevProject}
-              isModalNextAnimationPlaying={isModalNextAnimationPlaying}
-              isModalPrevAnimationPlaying={isModalPrevAnimationPlaying}
-              closeModal={closeModal}
-            />
-          </div>
-        </div>
-      </CSSTransition>
+          <ModalContent
+            project={project}
+            projectImage={image}
+            handleNextProject={handleNextProject}
+            handlePrevProject={handlePrevProject}
+            isModalNextAnimationPlaying={isModalNextAnimationPlaying}
+            isModalPrevAnimationPlaying={isModalPrevAnimationPlaying}
+            closeModal={closeModal}
+          />
+        </m.div>
+      </m.div>
     )
 }
 

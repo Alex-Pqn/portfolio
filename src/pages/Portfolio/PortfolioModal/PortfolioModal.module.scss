@@ -12,17 +12,7 @@
   &__content {
     position: absolute;
     width: 100%;
-  }
-}
-
-.modalOpenTransition {
-  @mixin default-modal-content {
-    top: -10%;
-    opacity: 0;
-  }
-  @mixin in-modal-content {
     top: 45%;
-    opacity: 1;
 
     // Small devices
     @media only screen and (max-width: 568px) {
@@ -35,56 +25,6 @@
     // Small devices
     @media only screen and (max-height: 768px) {
       top: 50%;
-    }
-  }
-  @mixin out-modal-content {
-    top: -30%;
-    opacity: 0;
-  }
-  @mixin default-modal {
-    background: transparent;
-  }
-  @mixin in-modal {
-    background-color: rgba(0, 0, 0, 0.3);
-  }
-  @mixin out-modal {
-    background: transparent;
-  }
-
-  $transition-modal-content: all 0.5s ease-in-out;
-  $transition-modal: all 0.5s ease-in-out;
-
-  @include default-modal;
-
-  .portfolioModal__content {
-    @include default-modal-content;
-  }
-  &--appearActive {
-    transition: $transition-modal;
-    @include in-modal;
-    .portfolioModal__content {
-      transition: $transition-modal-content;
-      @include in-modal-content;
-    }
-  }
-  &--appearDone {
-    @include in-modal;
-    .portfolioModal__content {
-      @include in-modal-content;
-    }
-  }
-  &--exit {
-    @include in-modal;
-    .portfolioModal__content {
-      @include in-modal-content;
-    }
-  }
-  &--exitActive {
-    transition: $transition-modal;
-    @include out-modal;
-    .portfolioModal__content {
-      transition: $transition-modal-content;
-      @include out-modal-content;
     }
   }
 }

@@ -6,7 +6,7 @@ import { Project } from '@/@types/Project'
 import PortfolioCard from './PortfolioCard/PortfolioCard'
 import PortfolioModal from './PortfolioModal/PortfolioModal'
 import { useAppSelector } from '@/store/store'
-import { motion as m } from 'framer-motion'
+import { AnimatePresence, motion as m } from 'framer-motion'
 
 interface Modal {
   isOpen: boolean
@@ -105,16 +105,18 @@ function Portfolio() {
               ))}
           </div>
           {/* Portfolio Modal */}
-          {modal.isOpen && modal.project && (
-            <PortfolioModal
-              project={modal.project}
-              triggerCloseModal={() =>
-                setModal({ isOpen: false, project: null })
-              }
-              triggerNextProject={handleNextProject}
-              triggerPrevProject={handlePrevProject}
-            />
-          )}
+          <AnimatePresence>
+            {modal.isOpen && modal.project && (
+              <PortfolioModal
+                project={modal.project}
+                triggerCloseModal={() =>
+                  setModal({ isOpen: false, project: null })
+                }
+                triggerNextProject={handleNextProject}
+                triggerPrevProject={handlePrevProject}
+              />
+            )}
+          </AnimatePresence>
         </m.section>
       </div>
     </>

@@ -7,6 +7,7 @@ import { ErrorBoundary } from 'react-error-boundary'
 import ErrorFallback from '@/components/ErrorFallback/ErrorFallback'
 import DefaultHeader from '@/components/Default/DefaultHeader/DefaultHeader'
 import DefaultFooter from '@/components/Default/DefaultFooter/DefaultFooter'
+import { AnimatePresence } from 'framer-motion'
 
 function Root() {
   return (
@@ -16,17 +17,22 @@ function Root() {
         <title>Alexandre Paquien • Développeur Web</title>
         <meta name="robots" content="index,follow" />
       </Helmet>
+
+      {/* Reset scroll */}
+      <ScrollRestoration />
+
       {/* App */}
-      <div id="app">
-        <ErrorBoundary FallbackComponent={ErrorFallback}>
-          <DefaultHeader />
-          <main>
-            <Outlet />
-            <ScrollRestoration />
-          </main>
-          <DefaultFooter />
-        </ErrorBoundary>
-      </div>
+      <AnimatePresence mode="wait">
+        <div id="app">
+          <ErrorBoundary FallbackComponent={ErrorFallback}>
+            <DefaultHeader />
+            <main>
+              <Outlet />
+            </main>
+            <DefaultFooter />
+          </ErrorBoundary>
+        </div>
+      </AnimatePresence>
     </>
   )
 }

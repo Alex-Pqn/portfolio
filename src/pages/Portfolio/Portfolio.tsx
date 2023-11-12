@@ -6,10 +6,36 @@ import { Project } from '@/@types/Project'
 import PortfolioCard from './PortfolioCard/PortfolioCard'
 import PortfolioModal from './PortfolioModal/PortfolioModal'
 import { useAppSelector } from '@/store/store'
+import { motion as m } from 'framer-motion'
 
 interface Modal {
   isOpen: boolean
   project: Project | null | undefined
+}
+
+const animation = {
+  visible: {
+    transition: {
+      when: 'beforeChildren',
+      staggerChildren: 0.1,
+    },
+  },
+  hidden: {
+    transition: {
+      when: 'afterChildren',
+    },
+  },
+}
+const animationMapItem = {
+  visible: (i: number) => ({
+    y: 0,
+    opacity: 1,
+    transition: {
+      delay: i * 0.15,
+      duration: 0.8,
+    },
+  }),
+  hidden: { y: 100, opacity: 0 },
 }
 
 function Portfolio() {
@@ -46,10 +72,24 @@ function Portfolio() {
         />
 
         {/* Portfolio */}
-        <section className={styles.portfolio}>
-          <div className={styles.portfolio__items}>
+        <m.section
+          className={styles.portfolio}
+          initial="hidden"
+          animate="visible"
+          variants={animation}
+        >
+          <div className={styles.portfolio__cards}>
             {projects &&
               projects.map((project, index) => (
+                // Portfolio Card
+                <m.article
+                  key={index}
+                  className={styles.portfolio__card}
+                  custom={index}
+                  initial="hidden"
+                  animate="visible"
+                  variants={animationMapItem}
+                >
                   <PortfolioCard
                     project={project}
                     triggerOpenModal={() =>
@@ -61,7 +101,7 @@ function Portfolio() {
                       })
                     }
                   />
-                </article>
+                </m.article>
               ))}
           </div>
           {/* Portfolio Modal */}
@@ -75,7 +115,7 @@ function Portfolio() {
               triggerPrevProject={handlePrevProject}
             />
           )}
-        </section>
+        </m.section>
       </div>
     </>
   )

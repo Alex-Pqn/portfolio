@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import styles from './DefaultHeader.module.scss'
+import { motion as m } from 'framer-motion'
 
 import { Link, NavLink } from 'react-router-dom'
 
@@ -15,7 +16,7 @@ function DefaultHeader() {
     }
   })
   return (
-    <header
+    <m.header
       className={`${styles.header} ${
         lastScrollPosition >= headerScrollTriggerPosition
           ? styles['header--scroll']
@@ -37,7 +38,7 @@ function DefaultHeader() {
           </li>
         </ul>
       </nav>
-    </header>
+    </m.header>
   )
 }
 

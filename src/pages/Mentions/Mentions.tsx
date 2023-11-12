@@ -1,6 +1,31 @@
 import { Helmet } from 'react-helmet-async'
 import styles from './Mentions.module.scss'
 import DefaultHero from '@/components/Default/DefaultHero/DefaultHero'
+import { motion as m } from 'framer-motion'
+
+const animation = {
+  hidden: {
+    transition: {
+      when: 'afterChildren',
+    },
+  },
+  visible: {
+    transition: {
+      when: 'beforeChildren',
+      staggerChildren: 0.1,
+    },
+  },
+}
+const animationItem = {
+  hidden: { y: 100, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 1,
+    },
+  },
+}
 
 function Mentions() {
   const siteUrl = 'https://alexandrepaquien.com/'
@@ -19,8 +44,16 @@ function Mentions() {
         <DefaultHero title="Mentions légales." />
 
         {/* Mentions */}
-        <section className={styles.mentions}>
-          <article className={styles.mentions__clause}>
+        <m.section
+          className={styles.mentions}
+          initial="hidden"
+          animate="visible"
+          variants={animation}
+        >
+          <m.article
+            className={styles.mentions__clause}
+            variants={animationItem}
+          >
             <h2>Définitions</h2>
             <p>
               <b>Client :</b> tout professionnel ou personne physique capable au
@@ -60,8 +93,11 @@ function Mentions() {
               par le Règlement Général sur la Protection des Données (RGPD : n°
               2016-679)
             </p>
-          </article>
-          <article className={styles.mentions__clause}>
+          </m.article>
+          <m.article
+            className={styles.mentions__clause}
+            variants={animationItem}
+          >
             <h2>1. Présentation du site internet.</h2>
             <p>
               En vertu de l&apos;article 6 de la loi n° 2004-575 du 21 juin 2004
@@ -94,8 +130,11 @@ function Mentions() {
               <strong>Délégué à la protection des données</strong> : Alexandre
               Paquien – <a href={`mailto:${email}`}>{email}</a>
             </p>
-          </article>
-          <article className={styles.mentions__clause}>
+          </m.article>
+          <m.article
+            className={styles.mentions__clause}
+            variants={animationItem}
+          >
             <h2>
               2. Conditions générales d’utilisation du site et des services
               proposés.
@@ -131,8 +170,11 @@ function Mentions() {
               l’utilisateur qui est invité à s’y référer le plus souvent
               possible afin d’en prendre connaissance.
             </p>
-          </article>
-          <article className={styles.mentions__clause}>
+          </m.article>
+          <m.article
+            className={styles.mentions__clause}
+            variants={animationItem}
+          >
             <h2>3. Description des services fournis.</h2>
 
             <p>
@@ -155,8 +197,11 @@ function Mentions() {
               exhaustifs. Ils sont donnés sous réserve de modifications ayant
               été apportées depuis leur mise en ligne.
             </p>
-          </article>
-          <article className={styles.mentions__clause}>
+          </m.article>
+          <m.article
+            className={styles.mentions__clause}
+            variants={animationItem}
+          >
             <h2>4. Limitations contractuelles sur les données techniques.</h2>
 
             <p>
@@ -189,8 +234,11 @@ function Mentions() {
               téléphonie lié notamment à l’encombrement du réseau empêchant
               l’accès au serveur.
             </p>
-          </article>
-          <article className={styles.mentions__clause}>
+          </m.article>
+          <m.article
+            className={styles.mentions__clause}
+            variants={animationItem}
+          >
             <h2>5. Propriété intellectuelle et contrefaçons.</h2>
 
             <p>
@@ -210,8 +258,11 @@ function Mentions() {
               contrefaçon et poursuivie conformément aux dispositions des
               articles L.335-2 et suivants du Code de Propriété Intellectuelle.
             </p>
-          </article>
-          <article className={styles.mentions__clause}>
+          </m.article>
+          <m.article
+            className={styles.mentions__clause}
+            variants={animationItem}
+          >
             <h2>6. Limitations de responsabilité.</h2>
 
             <p>
@@ -247,8 +298,11 @@ function Mentions() {
               raciste, injurieux, diffamant, ou pornographique, quel que soit le
               support utilisé (texte, photographie …).
             </p>
-          </article>
-          <article className={styles.mentions__clause}>
+          </m.article>
+          <m.article
+            className={styles.mentions__clause}
+            variants={animationItem}
+          >
             <h2>7. Gestion des données personnelles.</h2>
             <p>
               Le Client est informé des réglementations concernant la
@@ -257,8 +311,11 @@ function Mentions() {
               Août 2004 ainsi que du Règlement Général sur la Protection des
               Données (RGPD : n° 2016-679).{' '}
             </p>
-          </article>
-          <article className={styles.mentions__clause}>
+          </m.article>
+          <m.article
+            className={styles.mentions__clause}
+            variants={animationItem}
+          >
             <h2>7.1 Responsables de la collecte des données personnelles</h2>
             <p>
               Pour les Données Personnelles collectées dans le cadre de la
@@ -282,8 +339,11 @@ function Mentions() {
               des Données Personnelles au regard des finalités pour lesquelles{' '}
               <a href={siteUrl}>{siteUrl}</a> les traite.
             </p>
-          </article>
-          <article className={styles.mentions__clause}>
+          </m.article>
+          <m.article
+            className={styles.mentions__clause}
+            variants={animationItem}
+          >
             <h2>7.2 Finalité des données collectées</h2>
             <p>
               <a href={siteUrl}>{siteUrl}</a> est susceptible de traiter tout ou
@@ -322,8 +382,11 @@ function Mentions() {
               personnelles qui sont donc uniquement utilisées par nécessité ou à
               des fins statistiques et d’analyses.
             </p>
-          </article>
-          <article className={styles.mentions__clause}>
+          </m.article>
+          <m.article
+            className={styles.mentions__clause}
+            variants={animationItem}
+          >
             <h2>7.3 Droit d’accès, de rectification et d’opposition</h2>
             <p>
               Conformément à la réglementation européenne en vigueur, les
@@ -401,8 +464,11 @@ function Mentions() {
               une réclamation auprès des autorités de contrôle, et notamment de
               la CNIL (https://www.cnil.fr/fr/plaintes).
             </p>
-          </article>
-          <article className={styles.mentions__clause}>
+          </m.article>
+          <m.article
+            className={styles.mentions__clause}
+            variants={animationItem}
+          >
             <h2>7.4 Non-communication des données personnelles</h2>
             <p>
               <a href={siteUrl}>{siteUrl}</a> s’interdit de traiter, héberger ou
@@ -442,8 +508,11 @@ function Mentions() {
               notre service client.
             </p>
             <div ng-bind-html="rgpdHTML" />
-          </article>
-          <article className={styles.mentions__clause}>
+          </m.article>
+          <m.article
+            className={styles.mentions__clause}
+            variants={animationItem}
+          >
             <h2>8. Notification d’incident</h2>
             <p>
               Quels que soient les efforts fournis, aucune méthode de
@@ -486,9 +555,11 @@ function Mentions() {
               détournée, accès non autorisé, divulgation, altération ou
               destruction.
             </p>
-          </article>
-
-          <article className={styles.mentions__clause}>
+          </m.article>
+          <m.article
+            className={styles.mentions__clause}
+            variants={animationItem}
+          >
             <h2>
               9. Liens hypertextes « cookies » et balises (“tags”) internet
             </h2>
@@ -508,8 +579,11 @@ function Mentions() {
               sachant que cela peut réduire ou empêcher l’accessibilité à tout
               ou partie des Services proposés par le site.
             </p>
-          </article>
-          <article className={styles.mentions__clause}>
+          </m.article>
+          <m.article
+            className={styles.mentions__clause}
+            variants={animationItem}
+          >
             <h2>9.1. « COOKIES »</h2>
             <p>
               Un « cookie » est un petit fichier d’information envoyé sur le
@@ -594,8 +668,11 @@ function Mentions() {
               néanmoins revenir sur son consentement à ce que{' '}
               <a href={siteUrl}>{siteUrl}</a> dépose ce type de cookies.
             </p>
-          </article>
-          <article className={styles.mentions__clause}>
+          </m.article>
+          <m.article
+            className={styles.mentions__clause}
+            variants={animationItem}
+          >
             <h2>Article 9.2. BALISES (“TAGS”) INTERNET</h2>
             <p>
               <a href={siteUrl}>{siteUrl}</a> peut employer occasionnellement
@@ -627,8 +704,11 @@ function Mentions() {
               d’Internet.
             </p>
             <p />
-          </article>
-          <article className={styles.mentions__clause}>
+          </m.article>
+          <m.article
+            className={styles.mentions__clause}
+            variants={animationItem}
+          >
             <h2>10. Droit applicable et attribution de juridiction.</h2>
             <p>
               Tout litige en relation avec l’utilisation du site{' '}
@@ -636,8 +716,8 @@ function Mentions() {
               dehors des cas où la loi ne le permet pas, il est fait attribution
               exclusive de juridiction aux tribunaux compétents de Grenoble.
             </p>
-          </article>
-        </section>
+          </m.article>
+        </m.section>
       </div>
     </>
   )

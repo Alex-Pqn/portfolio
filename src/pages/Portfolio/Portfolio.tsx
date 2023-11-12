@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async'
 import DefaultHero from '@/components/Default/DefaultHero/DefaultHero'
 import { useState } from 'react'
 import { Project } from '@/@types/Project'
-import PortfolioProject from './PortfolioProject/PortfolioProject'
+import PortfolioCard from './PortfolioCard/PortfolioCard'
 import PortfolioModal from './PortfolioModal/PortfolioModal'
 import { useAppSelector } from '@/store/store'
 
@@ -50,9 +50,7 @@ function Portfolio() {
           <div className={styles.portfolio__items}>
             {projects &&
               projects.map((project, index) => (
-                // Portfolio Project
-                <article key={index} className={styles.portfolio__item}>
-                  <PortfolioProject
+                  <PortfolioCard
                     project={project}
                     triggerOpenModal={() =>
                       setModal({

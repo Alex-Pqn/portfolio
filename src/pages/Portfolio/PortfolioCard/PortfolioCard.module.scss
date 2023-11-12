@@ -1,7 +1,7 @@
 @import '@/styles/variables.scss';
 @import '@/styles/mixins.scss';
 
-.portfolioProject {
+.portfolioCard {
   display: flex;
   flex-direction: column;
   width: 375px;
@@ -14,7 +14,7 @@
     cursor: pointer;
 
     &:hover {
-      .portfolioProject__image-overlay {
+      .portfolioCard__image-overlay {
         opacity: 1;
       }
     }
@@ -59,7 +59,7 @@
 
 // Small devices
 @media only screen and (max-width: 568px) {
-  .portfolioProject {
+  .portfolioCard {
     width: 275px;
     &__footer {
       align-items: flex-start;

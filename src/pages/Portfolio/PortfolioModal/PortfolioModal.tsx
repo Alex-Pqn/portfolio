@@ -4,6 +4,8 @@ import { Project } from '@/@types/Project'
 import usePortfolioImage from '@/hooks/usePortfolioImage'
 import ModalContent from './ModalContent/ModalContent'
 import { motion as m } from 'framer-motion'
+import usePopstateEvent from '@/hooks/usePopstateEvent'
+import useKeydownEvent from '@/hooks/useKeydownEvent'
 interface Props {
   project: Project
   triggerCloseModal: () => void
@@ -93,23 +95,15 @@ function PortfolioModal({
     }
   }, [isAnimationPlaying, project.id, triggerPrevProject])
 
-  // On Keydown Event
-  const onKeydownEvent = useCallback(
-    (e: KeyboardEvent) => {
-      if (e.key === 'Escape') closeModal()
-      if (e.key === 'ArrowRight') handleNextProject()
-      if (e.key === 'ArrowLeft') handlePrevProject()
-    },
-    [closeModal, handleNextProject, handlePrevProject]
-  )
+  useKeydownEvent({
+    onEscape: () => closeModal(),
+    onArrowRight: () => handleNextProject(),
+    onArrowLeft: () => handlePrevProject(),
+  })
 
-  // On Popstate Event
-  const onPopstateEvent = useCallback(
-    (e: PopStateEvent) => {
-      if (e.state == 'backPressed') closeModal()
-    },
-    [closeModal]
-  )
+  usePopstateEvent({
+    onBackPressed: () => closeModal(),
+  })
 
   // Background Scroll Handler
   const backgroundScrollHandler = () =>
@@ -117,20 +111,15 @@ function PortfolioModal({
       document.body.style.overflow === 'hidden' ? 'auto' : 'hidden')
 
   useEffect(() => {
-    window.addEventListener('keydown', onKeydownEvent)
-    window.addEventListener('popstate', onPopstateEvent)
-
     window.history.pushState('backPressed', '', null)
     window.history.pushState('dummy', '', null)
 
     backgroundScrollHandler()
 
     return () => {
-      window.removeEventListener('keydown', onKeydownEvent)
-      window.removeEventListener('popstate', onPopstateEvent)
       backgroundScrollHandler()
     }
-  }, [closeModal, onKeydownEvent, onPopstateEvent])
+  }, [closeModal])
 
   if (loading || !image) return null
   else

@@ -14,14 +14,19 @@ interface Props {
 }
 
 const modalAnimation = {
-  hidden: { backgroundColor: 'transparent' },
+  hidden: { background: 'transparent' },
   visible: {
-    background: 'rgba(0, 0, 0, 0.3)',
+    backgroundColor: 'rgba(0, 0, 0, 0.3)',
     transition: {
-      duration: 1,
+      duration: 0.8,
     },
   },
-  exit: { backgroundColor: 'transparent' },
+  exit: {
+    backgroundColor: 'rgba(0, 0, 0, 0)',
+    transition: {
+      duration: 0.3,
+    },
+  },
 }
 
 const modalContentAnimation = {
@@ -128,6 +133,7 @@ function PortfolioModal({
       <m.div
         onClick={closeModal}
         className={styles.portfolioModal}
+        key="modal"
         initial="hidden"
         animate="visible"
         exit="exit"
@@ -136,9 +142,6 @@ function PortfolioModal({
         {/* Content */}
         <m.div
           className={styles.portfolioModal__content}
-          initial="hidden"
-          animate="visible"
-          exit="exit"
           variants={modalContentAnimation}
         >
           <ModalContent

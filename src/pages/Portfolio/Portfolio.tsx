@@ -13,7 +13,7 @@ interface Modal {
   project: Project | null | undefined
 }
 
-const animation = {
+const cardAnimation = {
   visible: {
     transition: {
       when: 'beforeChildren',
@@ -26,7 +26,7 @@ const animation = {
     },
   },
 }
-const animationMapItem = {
+const cardMapAnimation = {
   visible: (i: number) => ({
     y: 0,
     opacity: 1,
@@ -76,7 +76,7 @@ function Portfolio() {
           className={styles.portfolio}
           initial="hidden"
           animate="visible"
-          variants={animation}
+          variants={cardAnimation}
         >
           <div className={styles.portfolio__cards}>
             {projects &&
@@ -88,7 +88,7 @@ function Portfolio() {
                   custom={index}
                   initial="hidden"
                   animate="visible"
-                  variants={animationMapItem}
+                  variants={cardMapAnimation}
                 >
                   <PortfolioCard
                     project={project}

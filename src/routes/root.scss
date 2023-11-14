@@ -59,12 +59,13 @@ body {
 
     background: #ddd;
     background-image: linear-gradient(
-      45deg,
-      $app-color,
-      darken($app-color, 3%)
-    );
+        45deg,
+        $app-color,
+        darken($app-color, 4%) 85%
+      ),
+      linear-gradient(90deg, $app-color, darken($app-color, 2%));
     background-size: 400%;
-    animation: gradient 8s infinite alternate;
+    animation: gradient 7s infinite alternate;
   }
 
   background-color: $app-color;

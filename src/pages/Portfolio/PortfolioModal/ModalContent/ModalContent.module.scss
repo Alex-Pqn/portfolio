@@ -81,6 +81,9 @@
         max-width: 650px;
         object-fit: cover;
       }
+      &:hover {
+        opacity: 1 !important;
+      }
     }
   }
 

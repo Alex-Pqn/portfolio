@@ -55,7 +55,6 @@ function Portfolio() {
 
     setModal({ isOpen: true, project: prevProject || lastProject })
   }
-
   return (
     <>
       {/* Head */}
@@ -79,30 +78,33 @@ function Portfolio() {
           variants={cardAnimation}
         >
           <div className={styles.portfolio__cards}>
-            {projects &&
-              projects.map((project, index) => (
+            {projects.map(
+              (project, index) =>
                 // Portfolio Card
-                <m.article
-                  key={index}
-                  className={styles.portfolio__card}
-                  custom={index}
-                  initial="hidden"
-                  animate="visible"
-                  variants={cardMapAnimation}
-                >
-                  <PortfolioCard
-                    project={project}
-                    triggerOpenModal={() =>
-                      setModal({
-                        isOpen: true,
-                        project: {
-                          ...project,
-                        },
-                      })
-                    }
-                  />
-                </m.article>
-              ))}
+                project.imageUrl.webp &&
+                project.imageUrl.png && (
+                  <m.article
+                    key={index}
+                    className={styles.portfolio__card}
+                    custom={index}
+                    initial="hidden"
+                    animate="visible"
+                    variants={cardMapAnimation}
+                  >
+                    <PortfolioCard
+                      project={project}
+                      triggerOpenModal={() =>
+                        setModal({
+                          isOpen: true,
+                          project: {
+                            ...project,
+                          },
+                        })
+                      }
+                    />
+                  </m.article>
+                )
+            )}
           </div>
           {/* Portfolio Modal */}
           <AnimatePresence>

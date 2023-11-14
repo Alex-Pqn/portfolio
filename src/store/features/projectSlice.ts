@@ -1,31 +1,43 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { Project } from '@/@types/Project'
+import { Project, ProjectJson } from '@/@types/Project'
 import { Technology } from '@/@types/Technology'
-import projectsList from '@/assets/portfolio/projects.json'
-import technologiesList from '@/assets/portfolio/technologies.json'
+import projectsJson from '@/assets/portfolio/projects.json'
+import technologiesJson from '@/assets/portfolio/technologies.json'
+import useAsset from '@/hooks/useAsset'
 
 export interface ProjectState {
   projects: Project[]
 }
 
 const createInitialState = () => {
-  const modifiedProjects = projectsList.map((project, index) => ({
-    ...project,
+  const modifiedProjects: Project[] = projectsJson.map(
+    (project: ProjectJson, index) => ({
+      ...project,
 
-    id: index,
+      id: index,
 
-    technologies: project.technologies.reduce(
-      (result: string[], projectTechnologyId) => {
-        technologiesList.map((technology: Technology) => {
-          if (projectTechnologyId === technology.id) {
-            result.push(technology.name)
-          }
-        })
-        return result
+      imageUrl: {
+        webp: useAsset({
+          path: `portfolio/images/${project.filename}.webp`,
+        }),
+        png: useAsset({
+          path: `portfolio/images/${project.filename}.png`,
+        }),
       },
-      []
-    ),
-  }))
+
+      technologies: project.technologies.reduce(
+        (result: Project['technologies'], technologyId) => {
+          technologiesJson.map((technologyJson: Technology) => {
+            if (technologyId === technologyJson.id) {
+              result.push(technologyJson.name)
+            }
+          })
+          return result
+        },
+        []
+      ),
+    })
+  )
 
   return {
     projects: modifiedProjects,

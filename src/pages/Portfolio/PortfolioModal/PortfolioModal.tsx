@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
 import styles from './PortfolioModal.module.scss'
 import { Project } from '@/@types/Project'
-import usePortfolioImage from '@/hooks/usePortfolioImage'
 import ModalContent from './ModalContent/ModalContent'
 import { motion as m } from 'framer-motion'
 import usePopstateEvent from '@/hooks/usePopstateEvent'
@@ -53,10 +52,6 @@ function PortfolioModal({
   triggerNextProject,
   triggerPrevProject,
 }: Props) {
-  const { isLoading, imagePng, imageWebp } = usePortfolioImage({
-    filename: project.filename,
-  })
-
   const modalNextAnimationDuration = 800
   const [isModalNextAnimationPlaying, setIsModalNextAnimationPlaying] =
     useState(false)
@@ -128,36 +123,33 @@ function PortfolioModal({
     }
   }, [closeModal])
 
-  if (!isLoading)
-    return (
-      // PortfolioModal
+  return (
+    // PortfolioModal
+    <m.div
+      onClick={closeModal}
+      className={styles.portfolioModal}
+      key="modal"
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+      variants={modalAnimation}
+    >
+      {/* Content */}
       <m.div
-        onClick={closeModal}
-        className={styles.portfolioModal}
-        key="modal"
-        initial="hidden"
-        animate="visible"
-        exit="exit"
-        variants={modalAnimation}
+        className={styles.portfolioModal__content}
+        variants={modalContentAnimation}
       >
-        {/* Content */}
-        <m.div
-          className={styles.portfolioModal__content}
-          variants={modalContentAnimation}
-        >
-          <ModalContent
-            project={project}
-            projectImagePng={imagePng}
-            projectImageWebp={imageWebp}
-            handleNextProject={handleNextProject}
-            handlePrevProject={handlePrevProject}
-            isModalNextAnimationPlaying={isModalNextAnimationPlaying}
-            isModalPrevAnimationPlaying={isModalPrevAnimationPlaying}
-            closeModal={closeModal}
-          />
-        </m.div>
+        <ModalContent
+          project={project}
+          handleNextProject={handleNextProject}
+          handlePrevProject={handlePrevProject}
+          isModalNextAnimationPlaying={isModalNextAnimationPlaying}
+          isModalPrevAnimationPlaying={isModalPrevAnimationPlaying}
+          closeModal={closeModal}
+        />
       </m.div>
-    )
+    </m.div>
+  )
 }
 
 export default PortfolioModal

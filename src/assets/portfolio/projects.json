@@ -94,7 +94,7 @@
   },
   {
     "name": "Les petits plats",
-    "filename": "Les_petits_plats",
+    "filename": "LesPetitsPlats",
     "type": "Site de recettes de cuisine",
     "description": "Création de deux versions d'un algorithme de recherche : une première version utilisant les boucles natives JavaScript et la seconde en programmation fonctionnelle.",
     "organism": "OpenClassrooms",
@@ -130,7 +130,7 @@
   },
   {
     "name": "La chouette agence",
-    "filename": "La_chouette_agence",
+    "filename": "LaChouetteAgence",
     "type": "Site d'entreprise de design",
     "description": "Analyse de l'état actuel du SEO et mise en place d'au moins 10 recommandations, assurant ainsi la réduction du temps de chargement des pages et un meilleur référencement dans les moteurs de recherche.",
     "organism": "OpenClassrooms",

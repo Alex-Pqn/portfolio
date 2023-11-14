@@ -9,10 +9,11 @@ interface Props {
 }
 
 function PortfolioCard({ project, triggerOpenModal }: Props) {
-  const { loading, image } = usePortfolioImage({ filename: project.filename })
+  const { isLoading, imagePng, imageWebp } = usePortfolioImage({
+    filename: project.filename,
+  })
 
-  if (loading || !image) return null
-  else
+  if (!isLoading) {
     return (
       // Portfolio Card
       <div className={styles.portfolioCard}>
@@ -23,12 +24,12 @@ function PortfolioCard({ project, triggerOpenModal }: Props) {
           className={styles.portfolioCard__openModalButton}
         >
           {/* Image */}
-          <section
-            style={{
-              backgroundImage: `url(${image})`,
-            }}
-            className={styles.portfolioCard__image}
-          >
+          <section className={styles.portfolioCard__image}>
+            <picture>
+              <source srcSet={imageWebp} type="image/webp" />
+              <img src={imagePng} alt={project.name} />
+            </picture>
+
             {/* Overlay */}
             <div className={styles['portfolioCard__image-overlay']}>
               <IconPlusLg size="50px" />
@@ -46,6 +47,7 @@ function PortfolioCard({ project, triggerOpenModal }: Props) {
         </button>
       </div>
     )
+  }
 }
 
 export default PortfolioCard

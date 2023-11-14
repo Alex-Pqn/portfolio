@@ -53,7 +53,9 @@ function PortfolioModal({
   triggerNextProject,
   triggerPrevProject,
 }: Props) {
-  const { loading, image } = usePortfolioImage({ filename: project.filename })
+  const { isLoading, imagePng, imageWebp } = usePortfolioImage({
+    filename: project.filename,
+  })
 
   const modalNextAnimationDuration = 800
   const [isModalNextAnimationPlaying, setIsModalNextAnimationPlaying] =
@@ -126,8 +128,7 @@ function PortfolioModal({
     }
   }, [closeModal])
 
-  if (loading || !image) return null
-  else
+  if (!isLoading)
     return (
       // PortfolioModal
       <m.div
@@ -146,7 +147,8 @@ function PortfolioModal({
         >
           <ModalContent
             project={project}
-            projectImage={image}
+            projectImagePng={imagePng}
+            projectImageWebp={imageWebp}
             handleNextProject={handleNextProject}
             handlePrevProject={handlePrevProject}
             isModalNextAnimationPlaying={isModalNextAnimationPlaying}

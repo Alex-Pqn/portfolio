@@ -9,7 +9,8 @@ import IconChevronCompactRight from '@/components/Icon/IconChevronCompactLeft/Ic
 
 interface Props {
   project: Project
-  projectImage: string
+  projectImagePng: string
+  projectImageWebp: string
   handleNextProject: () => void
   handlePrevProject: () => void
   closeModal: () => void
@@ -19,7 +20,8 @@ interface Props {
 
 function ModalContent({
   project,
-  projectImage,
+  projectImagePng,
+  projectImageWebp,
   handleNextProject,
   handlePrevProject,
   isModalNextAnimationPlaying,
@@ -82,7 +84,10 @@ function ModalContent({
         {/* Image */}
         <section className={styles.modalContent__image}>
           <Link to={project.url.site || project.url.github} target="_blank">
-            <img src={projectImage} alt={project.name} />
+            <picture>
+              <source srcSet={projectImageWebp} type="image/webp" />
+              <img src={projectImagePng} alt={project.name} />
+            </picture>
           </Link>
         </section>
         <hr />

@@ -1,6 +1,7 @@
 import styles from './Home.module.scss'
 import DefaultHero from '@/components/Default/DefaultHero/DefaultHero'
-import photo from '@/assets/photo.jpg'
+import photoPng from '@/assets/photo.png'
+import photoWebp from '@/assets/photo.webp'
 import DefaultLink from '@/components/Default/DefaultLink/DefaultLink'
 import { motion as m } from 'framer-motion'
 
@@ -50,7 +51,10 @@ function Home() {
             className={styles['home__intro-photo']}
             variants={animationItem}
           >
-            <img src={photo} alt="Photo" />
+            <picture>
+              <source srcSet={photoWebp} type="image/webp" />
+              <img src={photoPng} alt="Photo" />
+            </picture>
           </m.div>
           <div className={styles['home__intro-text']}>
             {isMobileDisplay ? (

@@ -22,15 +22,19 @@
 
   &__image {
     position: relative;
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    background-size: cover;
-    background-repeat: no-repeat;
-    border-top-right-radius: 0.2em;
-    border-top-left-radius: 0.2em;
+    picture {
+      display: flex;
+      img {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        border-top-right-radius: 0.2em;
+        border-top-left-radius: 0.2em;
+      }
+    }
   }
   &__image-overlay {
     @include column-flex-center;
+    top: 0;
     z-index: 9;
     opacity: 0;
     transition: all ease-in-out 0.2s;

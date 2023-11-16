@@ -58,23 +58,28 @@ app.post(
           from: `${contact.email} <${contact.email}>`,
           to: Environment.email.address,
           subject: `${contact.subject}`,
-          text: `De: ${contact.name} \n\n${contact.message} \n\n- - - - - - - - - - - - - - - - - - \n\nTéléphone: ${contact.phone} \nE-mail: ${contact.email}`,
+          text: `De: ${contact.name} \n\n${
+            contact.message
+          } \n\n- - - - - - - - - - - - - - - - - - \n\n${
+            contact.phone && `Téléphone: ${contact.phone} \n`
+          }E-mail: ${contact.email}`,
         },
         (err) => {
           if (!err)
-            return res.status(200).json('Votre message a bien été envoyé !')
+            return res
+              .status(200)
+              .json({ message: 'Votre message a bien été envoyé !' })
 
-          res
-            .status(500)
-            .json("Une erreur s'est produite, l'email n'a pas pu être envoyé.")
+          res.status(500).json({
+            error: "Une erreur s'est produite, l'email n'a pas pu être envoyé.",
+          })
         }
       )
     } catch (err) {
-      res
-        .status(400)
-        .json(
-          "Une erreur s'est produite, les informations entrées sont incorrectes."
-        )
+      res.status(400).json({
+        error:
+          "Une erreur s'est produite, les informations du formulaire de contact sont invalides.",
+      })
     }
   }
 )

@@ -36,6 +36,9 @@ function DefaultHeader() {
               CV
             </Link>
           </li>
+          <li className={styles['header-nav__item']}>
+            <NavLink to={'/contact'}>Contact</NavLink>
+          </li>
         </ul>
       </nav>
     </m.header>

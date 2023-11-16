@@ -9,7 +9,7 @@ import Root from './routes/root'
 import Home from './pages/Home/Home'
 import Portfolio from './pages/Portfolio/Portfolio'
 import Mentions from './pages/Mentions/Mentions'
-// import Contact from './pages/Contact/Contact'
+import Contact from './pages/Contact/Contact'
 import Error from './pages/Error/Error'
 
 const router = createBrowserRouter([
@@ -33,10 +33,10 @@ const router = createBrowserRouter([
         path: '/mentions',
         element: <Mentions />,
       },
-      // {
-      //   path: '/contact',
-      //   element: <Contact />,
-      // },
+      {
+        path: '/contact',
+        element: <Contact />,
+      },
     ],
   },
 ])

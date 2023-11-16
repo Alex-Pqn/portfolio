@@ -20,6 +20,7 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
     project: './tsconfig.json',
+    tsconfigRootDir: __dirname,
   },
   plugins: ['react', '@typescript-eslint', 'prettier', 'import'],
   settings: {
@@ -45,6 +46,6 @@ module.exports = {
         mjs: 'never',
       },
     ],
-    // 'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
+    'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
   },
 }

@@ -1,6 +1,6 @@
-const http = require('http')
-const app = require('./app')
-import { config } from './config/config'
+import http from 'http'
+import app from './app'
+import { Environment } from './config/env.config'
 
 //defined the port of the server
 const normalizePort = (val: string) => {
@@ -14,7 +14,7 @@ const normalizePort = (val: string) => {
   }
   return false
 }
-const port = normalizePort(config.port || '4200')
+const port = normalizePort(Environment.port || '4200')
 app.set('port', port)
 
 //errors manager

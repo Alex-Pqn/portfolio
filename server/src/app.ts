@@ -1,64 +1,45 @@
-import express, { Response, Request, NextFunction } from 'express'
-const path = require('path')
+import express from 'express'
+import path from 'path'
 import bodyParser from 'body-parser'
 import helmet from 'helmet'
 import cors from 'cors'
-import { compressionMiddleware } from './middleware/compression'
+import compressionMiddleware from './middleware/compression'
+import httpsMiddleware from './middleware/https'
+import headersMiddleware from './middleware/headers'
 import { limiter, limiterContact } from './middleware/limiter'
-import { config } from './config/config'
+import { Environment } from './config/env.config'
+import { Contact as ContactT } from './types/Contact.d'
+import { transporter } from './util/transporter'
+import { corsAllowedOrigins } from './config/cors.config'
+import { contactSchema } from './model/contact.model'
 
 const app = express()
 
-app.use((_req: Request, res: Response, next: NextFunction) => {
-  res.setHeader('Access-Control-Allow-Origin', '*')
-  res.setHeader(
-    'Access-Control-Allow-Headers',
-    'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization'
-  )
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST')
-
-  next()
-})
-
-app.use((req: Request, res: Response, next: NextFunction) => {
-  const isHttps = req.secure
-
-  if (config.isProd && !isHttps) {
-    return res.redirect('https://' + req.headers.host + req.url)
-  }
-
-  return next()
-})
-
-const allowedOrigins = config.isProd
-  ? ["'self'", 'https://fonts.googleapis.com']
-  : ["'self'", 'http://localhost:5173', 'https://fonts.googleapis.com']
-
+app.use(headersMiddleware)
+app.use(httpsMiddleware)
 app.use(
   cors({
-    origin: allowedOrigins,
+    origin: corsAllowedOrigins,
   })
 )
 app.use(
   helmet({
     contentSecurityPolicy: {
       directives: {
-        defaultSrc: allowedOrigins,
+        defaultSrc: corsAllowedOrigins,
       },
     },
   })
 )
 app.use(compressionMiddleware())
 app.use(limiter)
-app.use(bodyParser.json({ limit: '8kb', strict: true }))
+app.use(bodyParser.json())
 app.use(
   bodyParser.urlencoded({
-    limit: '8kb',
     extended: true,
-    parameterLimit: 10,
+    parameterLimit: 50,
   })
 )
-
 // Reduce Fingerprinting
 app.disable('x-powered-by')
 // Enforce cache
@@ -68,8 +49,33 @@ app.post(
   '/api/v1/contact',
   limiterContact,
   async (req: express.Request, res: express.Response) => {
-    console.log(req.body)
-    res.status(200).json('API V1')
+    try {
+      const bodyValidate = await contactSchema.validate(req.body)
+      const contact: ContactT = bodyValidate.value
+
+      transporter.sendMail(
+        {
+          from: `${contact.email} <${contact.email}>`,
+          to: Environment.email.address,
+          subject: `${contact.subject}`,
+          text: `De: ${contact.name} \n\n${contact.message} \n\n- - - - - - - - - - - - - - - - - - \n\nTéléphone: ${contact.phone} \nE-mail: ${contact.email}`,
+        },
+        (err) => {
+          if (!err)
+            return res.status(200).json('Votre message a bien été envoyé !')
+
+          res
+            .status(500)
+            .json("Une erreur s'est produite, l'email n'a pas pu être envoyé.")
+        }
+      )
+    } catch (err) {
+      res
+        .status(400)
+        .json(
+          "Une erreur s'est produite, les informations entrées sont incorrectes."
+        )
+    }
   }
 )
 
@@ -85,4 +91,4 @@ app.get('*', function (_req, res) {
   })
 })
 
-module.exports = app
+export default app

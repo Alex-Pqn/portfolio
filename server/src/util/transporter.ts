@@ -1,0 +1,4 @@
+import { transporterOptions } from '../config/transporter.config'
+import nodemailer from 'nodemailer'
+
+export const transporter = nodemailer.createTransport(transporterOptions)

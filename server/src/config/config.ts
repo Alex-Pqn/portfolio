@@ -7,6 +7,7 @@ console.log(`Loading environment variables from: ${envPath}`)
 
 export const config = {
   port: process.env.PORT,
+  isProd: process.env.NODE_ENV === 'production',
   baseUrl: process.env.BASE_URL,
 
   email: {

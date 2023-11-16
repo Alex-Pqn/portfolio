@@ -30,4 +30,35 @@
     border-color: rgba(255, 255, 255, 0.6);
     background-color: darken($app-color, 7%);
   }
+
+  // Small devices
+  @media only screen and (max-width: 568px) {
+    font-size: 1em;
+  }
+}
+
+@mixin input-text {
+  font-family: Arial, Helvetica, sans-serif;
+  color: black !important;
+  border: 2px solid rgba(255, 255, 255, 0);
+  border-radius: 0.2em;
+  outline: none;
+  padding: 8px 10px;
+  &:focus {
+    transition: all 0.1s ease-in-out;
+    border-color: darken($app-color, 7%);
+  }
+
+  // Medium devices
+  @media only screen and (min-width: 768px) and (max-width: 992px) {
+    padding: 7px 9px;
+  }
+  // Small devices
+  @media only screen and (min-width: 568px) and (max-width: 768px) {
+    padding: 6px 7px;
+  }
+  // Small devices
+  @media only screen and (max-width: 568px) {
+    padding: 4px 5px;
+  }
 }

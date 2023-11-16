@@ -55,6 +55,21 @@
 // Small devices
 @media only screen and (max-width: 568px) {
   .header-nav__item a {
-    font-size: 1.1em;
+    font-size: 1em;
+  }
+}
+// Small devices
+@media only screen and (max-width: 400px) {
+  .header-nav {
+    &__items {
+      padding: 15px 7px;
+    }
+    &__item {
+      a {
+        margin: 0 3px;
+        font-size: 0.9em;
+        padding: calc(4px) 10px calc(2px) 10px;
+      }
+    }
   }
 }

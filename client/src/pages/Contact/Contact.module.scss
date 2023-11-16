@@ -4,20 +4,10 @@
 }
 
 .contact {
-  &__form {
-    form {
-      display: flex;
-      flex-direction: column;
-      label {
-        margin: 10px 0;
+  width: 100%;
 
-        * {
-          color: black !important;
-        }
-      }
-      input[type='submit'] {
-        @include button;
-      }
-    }
+  &__form {
+    width: 100%;
+    @include row-flex-center;
   }
 }

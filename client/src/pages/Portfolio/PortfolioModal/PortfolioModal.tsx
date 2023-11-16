@@ -3,8 +3,8 @@ import styles from './PortfolioModal.module.scss'
 import { Project } from '@/@types/Project'
 import ModalContent from './ModalContent/ModalContent'
 import { motion as m } from 'framer-motion'
-import usePopstateEvent from '@/hooks/usePopstateEvent'
-import useKeydownEvent from '@/hooks/useKeydownEvent'
+import usePopstateEvent from '@/_hooks/usePopstateEvent'
+import useKeydownEvent from '@/_hooks/useKeydownEvent'
 interface Props {
   project: Project
   triggerCloseModal: () => void

@@ -3,7 +3,7 @@ import { Project, ProjectJson } from '@/@types/Project'
 import { Technology } from '@/@types/Technology'
 import projectsJson from '@/assets/portfolio/projects.json'
 import technologiesJson from '@/assets/portfolio/technologies.json'
-import useAsset from '@/hooks/useAsset'
+import useAsset from '@/_hooks/useAsset'
 
 export interface ProjectState {
   projects: Project[]

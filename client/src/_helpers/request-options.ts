@@ -14,10 +14,4 @@ export const requestOptions = {
       body: JSON.stringify(body),
     }
   },
-  postFormData(formData: unknown) {
-    return {
-      method: 'POST',
-      body: formData,
-    }
-  },
 }

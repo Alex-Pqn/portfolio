@@ -43,20 +43,20 @@ function FormContact() {
     formState: { errors },
   } = useForm<ContactT>({ resolver: joiResolver(contactSchema) })
 
-  const resetFormStatus = (waitBeforeReset: number) =>
+  const resetFormStatus = (timeBeforeReset: number) =>
     setTimeout(() => {
       setSuccessStatus('')
       setErrorStatus('')
-    }, waitBeforeReset)
+    }, timeBeforeReset)
 
   function formSuccess(message: string) {
     setSuccessStatus(message)
     reset()
-    resetFormStatus(5000)
+    resetFormStatus(7500)
   }
   function formError(error: string) {
     setErrorStatus(error)
-    resetFormStatus(5000)
+    resetFormStatus(7500)
   }
 
   function sendForm(contact: ContactT) {

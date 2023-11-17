@@ -4,7 +4,7 @@ import bodyParser from 'body-parser'
 import helmet from 'helmet'
 import cors from 'cors'
 import compressionMiddleware from './middleware/compression'
-import httpsMiddleware from './middleware/https'
+import httpsOnlyMiddleware from './middleware/httpsOnly'
 import headersMiddleware from './middleware/headers'
 import { limiter, limiterContact } from './middleware/limiter'
 import { Environment } from './config/env.config'
@@ -16,7 +16,6 @@ import { contactSchema } from './model/contact.model'
 const app = express()
 
 app.use(headersMiddleware)
-app.use(httpsMiddleware)
 app.use(
   cors({
     origin: corsAllowedOrigins,
@@ -31,6 +30,10 @@ app.use(
     },
   })
 )
+if (Environment.isProd) {
+  app.enable('trust proxy')
+  app.use(httpsOnlyMiddleware)
+}
 app.use(compressionMiddleware())
 app.use(limiter)
 app.use(bodyParser.json())

@@ -34,4 +34,6 @@ export const contactSchema = Joi.object({
     }),
   subject: Joi.string().min(5).max(100).required(),
   message: Joi.string().min(25).max(5000).required(),
-}).messages(customMessage)
+})
+  .messages(customMessage)
+  .required()

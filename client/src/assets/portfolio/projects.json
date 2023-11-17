@@ -29,7 +29,7 @@
     "type": "Portfolio",
     "description": "Création de mon portfolio, permettant de regrouper mes projets réalisés, mon CV et mes informations de contact.",
     "organism": "Personnel",
-    "technologies": ["react", "redux", "sass", "ts", "git"],
+    "technologies": ["react", "redux", "ts", "apirest", "express", "git"],
     "url": {
       "site": "https://alexandrepaquien.com/",
       "github": "https://github.com/Alex-Pqn/portfolio"

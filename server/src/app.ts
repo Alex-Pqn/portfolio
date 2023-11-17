@@ -1,4 +1,4 @@
-import express from 'express'
+import express, { Response, Request } from 'express'
 import path from 'path'
 import bodyParser from 'body-parser'
 import helmet from 'helmet'
@@ -6,26 +6,33 @@ import cors from 'cors'
 import compressionMiddleware from './middleware/compression'
 import httpsOnlyMiddleware from './middleware/httpsOnly'
 import headersMiddleware from './middleware/headers'
+import bodyMiddleware from './middleware/body'
 import { limiter, limiterContact } from './middleware/limiter'
 import { Environment } from './config/env.config'
 import { Contact as ContactT } from './types/Contact.d'
 import { transporter } from './util/transporter'
-import { corsAllowedOrigins } from './config/cors.config'
+import { corsOrigins } from './config/cors.config'
 import { contactSchema } from './model/contact.model'
 
 const app = express()
 
+// Reduce Fingerprinting
+app.disable('x-powered-by')
+app.disable('server')
+// Enforce cache
+app.disable('etag')
+
 app.use(headersMiddleware)
 app.use(
   cors({
-    origin: corsAllowedOrigins,
+    origin: corsOrigins,
   })
 )
 app.use(
   helmet({
     contentSecurityPolicy: {
       directives: {
-        defaultSrc: corsAllowedOrigins,
+        'default-src': corsOrigins,
       },
     },
   })
@@ -34,8 +41,10 @@ if (Environment.isProd) {
   app.enable('trust proxy')
   app.use(httpsOnlyMiddleware)
 }
+
 app.use(compressionMiddleware())
 app.use(limiter)
+
 app.use(bodyParser.json())
 app.use(
   bodyParser.urlencoded({
@@ -43,18 +52,15 @@ app.use(
     parameterLimit: 50,
   })
 )
-// Reduce Fingerprinting
-app.disable('x-powered-by')
-// Enforce cache
-app.disable('etag')
+
+app.use(bodyMiddleware)
 
 app.post(
   '/api/v1/contact',
   limiterContact,
-  async (req: express.Request, res: express.Response) => {
+  async (req: Request, res: Response) => {
     try {
-      const bodyValidate = await contactSchema.validate(req.body)
-      const contact: ContactT = bodyValidate.value
+      const contact: ContactT = await contactSchema.validateAsync(req.body)
 
       transporter.sendMail(
         {
@@ -74,7 +80,8 @@ app.post(
               .json({ message: 'Votre message a bien été envoyé !' })
 
           res.status(500).json({
-            error: "Une erreur s'est produite, l'email n'a pas pu être envoyé.",
+            error:
+              "Une erreur s'est produite, l'email n'a pas pu être envoyé. Contactez moi via mon adresse mail plus bas !",
           })
         }
       )

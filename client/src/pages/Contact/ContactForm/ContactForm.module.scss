@@ -1,6 +1,6 @@
 @import '@/styles/mixins.scss';
 
-.formContact {
+.contactForm {
   @include column-flex-center;
   background-color: rgba(0, 0, 0, 0.05);
   border-radius: 1em;
@@ -22,7 +22,7 @@
     flex-direction: column;
     align-items: center;
 
-    .formContact__field {
+    .contactForm__field {
       width: 100%;
     }
   }
@@ -77,7 +77,7 @@
 
 // Medium devices
 @media only screen and (min-width: 768px) and (max-width: 992px) {
-  .formContact {
+  .contactForm {
     @include column-flex-center;
     width: 600px;
 
@@ -92,7 +92,7 @@
 }
 
 @media only screen and (max-width: 768px) {
-  .formContact {
+  .contactForm {
     background-color: rgba(0, 0, 0, 0.07);
 
     &__top,
@@ -122,7 +122,7 @@
 
 // Small devices
 @media only screen and (min-width: 568px) and (max-width: 768px) {
-  .formContact {
+  .contactForm {
     padding: 20px 25px;
     width: 80%;
 
@@ -134,7 +134,7 @@
 
 // Small devices
 @media only screen and (max-width: 568px) {
-  .formContact {
+  .contactForm {
     padding: 10px 18px;
     width: 100%;
 

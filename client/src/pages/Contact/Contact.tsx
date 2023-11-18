@@ -1,7 +1,7 @@
 import styles from './Contact.module.scss'
 import { Helmet } from 'react-helmet-async'
 import DefaultHero from '@/components/Default/DefaultHero/DefaultHero'
-import FormContact from '@/components/FormContact/FormContact'
+import ContactForm from '@/pages/Contact/ContactForm/ContactForm'
 
 function Contact() {
   return (
@@ -18,7 +18,7 @@ function Contact() {
         {/* Contact */}
         <section className={styles.contact}>
           <div className={styles.contact__form}>
-            <FormContact />
+            <ContactForm />
           </div>
         </section>
       </div>

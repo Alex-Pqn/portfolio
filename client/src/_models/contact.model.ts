@@ -2,7 +2,7 @@ import Joi from 'joi'
 import tlds from 'tlds'
 
 const customMessage = {
-  'string.empty': 'Ce champ ne peut pas être vide.',
+  'string.empty': 'Ce champ est requis.',
   'string.min': 'Ce champ doit contenir au minimum {#limit} caractères.',
   'string.max': 'Ce champ doit contenir au maximum {#limit} caractères.',
   'any.required': 'Ce champ est requis.',

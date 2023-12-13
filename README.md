@@ -1,2 +1,2 @@
 # portfolio
-Portfolio 2023 with React &amp; Typescript
+Portfolio 2023 with React, Typescript & Express

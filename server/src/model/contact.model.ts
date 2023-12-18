@@ -21,7 +21,8 @@ const customJoi = Joi.extend((joi) => {
 
 export const contactSchema = customJoi
   .object({
-    name: customJoi.string().min(5).max(32).htmlStrip().required(),
+    firstName: customJoi.string().min(2).max(32).htmlStrip().required(),
+    lastName: customJoi.string().min(2).max(32).htmlStrip().required(),
     phone: customJoi
       .string()
       .min(5)
@@ -39,7 +40,7 @@ export const contactSchema = customJoi
         },
       })
       .min(5)
-      .max(32)
+      .max(50)
       .htmlStrip()
       .required(),
     subject: customJoi.string().min(5).max(100).htmlStrip().required(),

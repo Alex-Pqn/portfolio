@@ -67,7 +67,7 @@ app.post(
           from: `${contact.email} <${contact.email}>`,
           to: Environment.email.address,
           subject: `${contact.subject}`,
-          text: `De: ${contact.name} \n\n${
+          text: `De: ${contact.firstName} ${contact.lastName} \n\n${
             contact.message
           } \n\n- - - - - - - - - - - - - - - - - - \n\n${
             contact.phone && `Téléphone: ${contact.phone} \n`

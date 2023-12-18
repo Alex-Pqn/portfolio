@@ -27,7 +27,7 @@
     "name": "alexandrepaquien.com",
     "filename": "Portfolio",
     "type": "Portfolio",
-    "description": "Création de mon portfolio, permettant de regrouper mes projets réalisés, mon CV et mes informations de contact.",
+    "description": "Création de mon portfolio, permettant de regrouper mes projets réalisés, mon CV et un formulaire de contact.",
     "organism": "Personnel",
     "technologies": ["react", "redux", "ts", "apirest", "express", "git"],
     "url": {

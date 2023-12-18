@@ -102,6 +102,7 @@
       justify-content: space-between;
       width: 100%;
     }
+    &__top,
     &__middle {
       flex-direction: column !important;
       align-items: center;

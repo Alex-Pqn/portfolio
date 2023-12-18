@@ -9,7 +9,8 @@ const customMessage = {
 }
 
 export const contactSchema = Joi.object({
-  name: Joi.string().min(5).max(32).required(),
+  firstName: Joi.string().min(2).max(32).required(),
+  lastName: Joi.string().min(2).max(32).required(),
   phone: Joi.string()
     .min(5)
     .max(32)
@@ -27,7 +28,7 @@ export const contactSchema = Joi.object({
       },
     })
     .min(5)
-    .max(32)
+    .max(50)
     .required()
     .messages({
       'string.email': 'Veuillez entrer votre email.',

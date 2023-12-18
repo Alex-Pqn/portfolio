@@ -88,17 +88,31 @@ function ContactForm() {
     >
       {/* Top */}
       <m.div className={styles.contactForm__top} variants={animationItem}>
-        <label htmlFor="name" className={styles.contactForm__field}>
+        <label htmlFor="firstname" className={styles.contactForm__field}>
           <span className={styles['contactForm__field-label']}>Nom*</span>
           <input
-            id="name"
+            id="firstname"
             className={styles['contactForm__field-input']}
             type="text"
-            {...register('name')}
+            {...register('firstName')}
           />
 
           <p className={styles['contactForm__field-error']}>
-            {errors.name && errors.name.message}
+            {errors.firstName && errors.firstName.message}
+          </p>
+        </label>
+
+        <label htmlFor="lastname" className={styles.contactForm__field}>
+          <span className={styles['contactForm__field-label']}>Prénom*</span>
+          <input
+            id="lastname"
+            className={styles['contactForm__field-input']}
+            type="text"
+            {...register('lastName')}
+          />
+
+          <p className={styles['contactForm__field-error']}>
+            {errors.lastName && errors.lastName.message}
           </p>
         </label>
       </m.div>

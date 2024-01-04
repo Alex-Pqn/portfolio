@@ -32,7 +32,7 @@ function DefaultHeader() {
             <NavLink to={'/portfolio'}>Portfolio</NavLink>
           </li>
           <li className={styles['header-nav__item']}>
-            <Link to={'/CV.pdf'} target="_blank">
+            <Link to={'/AlexandrePaquien_CV.pdf'} target="_blank">
               CV
             </Link>
           </li>

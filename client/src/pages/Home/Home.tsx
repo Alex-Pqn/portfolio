@@ -59,13 +59,11 @@ function Home() {
           <div className={styles['home__intro-text']}>
             {isMobileDisplay ? (
               <m.h1 variants={animationItem}>
-                Je m&apos;appelle Alexandre, j&apos;ai 19 ans, et je suis à la
-                recherche de mon premier emploi.
+                Je m&apos;appelle Alexandre, j&apos;ai 20 ans et je suis développeur React et Vue.js.
               </m.h1>
             ) : (
               <m.h2 variants={animationItem}>
-                J&apos;ai 19 ans, et après trois années de formation, je suis à
-                la recherche de mon premier emploi.
+                J&apos;ai 20 ans et je suis un développeur React et Vue.js basé à Grenoble.
               </m.h2>
             )}
             <m.div variants={animationItem}>
@@ -76,8 +74,7 @@ function Home() {
                 MySQL et MongoDB.
               </p>
               <p>
-                Motivé et passionné par ce domaine, mon objectif est désormais
-                d&apos;intégrer une équipe dynamique.
+                Mon objectif est de rejoindre une équipe dynamique où je peux apporter ma contribution en créant des interfaces utilisateur intuitives et réactives.
               </p>
             </m.div>
           </div>
